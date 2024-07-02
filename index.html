@@ -26,15 +26,16 @@
         .toggle {
             position: absolute;
             top: 1em;
-            left: 1em;
+            right: 1em;
             cursor: pointer;
+            font-size: 1.5em;
         }
         .menu {
             display: none;
             background: #fff;
             position: absolute;
             top: 3em;
-            left: 1em;
+            right: 1em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
         .menu a {
@@ -99,6 +100,12 @@
             border-radius: 50%;
             object-fit: cover;
         }
+        .contact-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #333;
+            font-size: 1.5em;
+        }
     </style>
     <script>
         function toggleMenu() {
@@ -130,8 +137,16 @@
         <h2>Get in Touch</h2>
         <p>Feel free to reach out to me for collaborations, inquiries, or feedback:</p>
         <ul class="contact">
-            <li><strong>Email:</strong> <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tosin-adewole">LinkedIn Profile</a></li>
+            <li>
+                <a href="mailto:tosinadewole@hotmail.com">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/tosin-adewole">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </li>
         </ul>
     </section>
     <section id="feedback">
