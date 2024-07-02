@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tosin Adewole: Expert in Data Analysis, Writing, Research & More</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f4f4f4, #e2e2e2);
+        }
+        header {
+            background: linear-gradient(135deg, #0066cc, #003366);
+            color: #fff;
+            padding: 1em 0;
+            position: relative;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .toggle {
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            cursor: pointer;
+        }
+        .menu {
+            display: none;
+            background: #fff;
+            position: absolute;
+            top: 3em;
+            left: 1em;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .menu a {
+            display: block;
+            padding: 0.5em 1em;
+            color: #333;
+            text-decoration: none;
+        }
+        .menu a:hover {
+            background: #f4f4f4;
+        }
+        section {
+            padding: 2em;
+            max-width: 800px;
+            margin: 2em auto;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            line-height: 1.6;
+        }
+        footer {
+            background: linear-gradient(135deg, #0066cc, #003366);
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .contact a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        .social-icons li {
+            display: inline;
+            margin: 0 10px;
+        }
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        .profile-pic {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <i class="fas fa-bars toggle" onclick="toggleMenu()"></i>
+        <h1>Tosin Adewole</h1>
+        <div class="menu">
+            <a href="#contact">Contact</a>
+            <a href="#blog">Blog</a>
+            <a href="#projects">Projects</a>
+        </div>
+    </header>
+    <section>
+        <img src="profile-pic.jpg" alt="Tosin Adewole" class="profile-pic">
+        <h2>About Me</h2>
+        <p>Hello, I'm Tosin Matthew Adewole. I'm an expert in data analysis, writing, research, graphics design, customer service, marketing, virtual assistance, and more.</p>
+    </section>
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>Here, you'll find a showcase of my work and projects in various fields. Each project is a testament to my skills and commitment to excellence.</p>
+    </section>
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <p>Feel free to reach out to me for collaborations, inquiries, or feedback:</p>
+        <ul class="contact">
+            <li><strong>Email:</strong> <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/tosin-adewole">LinkedIn Profile</a></li>
+        </ul>
+    </section>
+    <section id="feedback">
+        <h2>Feedback</h2>
+        <p>We value your feedback. Please fill out the form below:</p>
+        <iframe src="https://forms.gle/3mJj2rbvQFDXj13f6"></iframe>
+    </section>
+    <footer>
+        <ul class="social-icons">
+            <li><a href="https://x.com/teeblaze?t=dJ1zbkAZNH4SbUbgZynyfA&s=09" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/techblazer001?igsh=YzljYTk1ODg3Zg==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook"></i></a></li>
+        </ul>
+        <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
+    </footer>
+</body>
+</html>
