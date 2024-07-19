@@ -10,51 +10,65 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #2c2c2c, #4c4c4c);
-            color: #eaeaea;
+            background: linear-gradient(135deg, #333333, #666666);
+            color: #fff;
         }
         header {
-            background: url('background-image.jpg') no-repeat center center/cover;
-            padding: 1em 0;
+            background-image: url('/mnt/data/Screenshot_20240719-113418_Opera.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 1em;
             position: relative;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Light tint effect */
+            z-index: 0;
         }
         header h1 {
             margin: 0;
-            font-size: 2em;
+            font-size: 1.5em;
+            position: relative;
+            z-index: 1;
         }
         .toggle {
-            position: absolute;
-            top: 1em;
-            left: 1em;
             cursor: pointer;
-            font-size: 2em;
+            position: relative;
+            z-index: 1;
         }
         .menu {
             display: none;
-            background: #fff;
+            background: #000;
             position: absolute;
             top: 3em;
-            left: 1em;
+            right: 1em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             width: 200px;
         }
         .menu a {
             display: block;
-            padding: 0.5em 1em;
-            color: #333;
+            padding: 1em;
+            color: #fff;
             text-decoration: none;
         }
         .menu a:hover {
-            background: #f4f4f4;
+            background: #444;
         }
         section {
             padding: 2em;
             max-width: 800px;
             margin: 2em auto;
-            background: rgba(0, 0, 0, 0.7);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            border-radius: 10px;
+            background: #222;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         h2 {
             color: #fff;
@@ -63,16 +77,14 @@
             line-height: 1.6;
         }
         footer {
-            background: linear-gradient(135deg, #0066cc, #003366);
+            background: #000;
             color: #fff;
             text-align: center;
             padding: 1em 0;
-            position: fixed;
-            bottom: 0;
             width: 100%;
         }
         .contact a {
-            color: #0066cc;
+            color: #fff;
             text-decoration: none;
         }
         .social-icons {
@@ -89,11 +101,6 @@
             text-decoration: none;
             font-size: 20px;
         }
-        iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-        }
         .profile-pic {
             display: block;
             margin: 0 auto;
@@ -102,123 +109,124 @@
             border-radius: 50%;
             object-fit: cover;
         }
-        .project-placeholder {
-            display: block;
-            margin: 0 auto;
+        .project-thumbnail {
             width: 100%;
             height: 200px;
-            background: rgba(0, 0, 0, 0.5);
-            text-align: center;
-            line-height: 200px;
-            color: #fff;
-            transition: background 0.3s ease;
-        }
-        .project-placeholder:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-        .resume-button {
-            display: block;
-            width: 200px;
-            margin: 2em auto;
-            padding: 1em;
-            text-align: center;
-            background: #0066cc;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-        .resume-button:hover {
-            background: #003366;
-        }
-        .section-title {
-            text-align: center;
-        }
-        .center {
-            text-align: center;
-        }
-        .project {
-            background: url('project-background.jpg') no-repeat center center/cover;
-            position: relative;
-            height: 300px;
+            background: #444;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #fff;
-            text-transform: uppercase;
-            font-size: 2em;
-            transition: background 0.3s ease;
+            margin-bottom: 1em;
+            transition: background 0.3s;
         }
-        .project:hover {
-            background: rgba(0, 0, 0, 0.8);
+        .project-thumbnail:hover {
+            background: rgba(0, 0, 0, 0.5);
         }
         .project-title {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
+            color: #fff;
+            display: none;
+        }
+        .project-thumbnail:hover .project-title {
+            display: block;
+        }
+        .get-in-touch {
             text-align: center;
-            padding: 0.5em 0;
-            background: rgba(0, 0, 0, 0.5);
+        }
+        .get-in-touch form input,
+        .get-in-touch form textarea {
+            width: 100%;
+            padding: 0.5em;
+            margin: 0.5em 0;
+            border: none;
+            border-radius: 5px;
+        }
+        .get-in-touch form button {
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            background: #fff;
+            color: #000;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .get-in-touch form button:hover {
+            background: #ccc;
+        }
+        .compact-footer {
+            font-size: 0.8em;
         }
     </style>
     <script>
         function toggleMenu() {
             const menu = document.querySelector('.menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-            const toggleIcon = document.querySelector('.toggle i');
-            toggleIcon.classList.toggle('fa-bars');
-            toggleIcon.classList.toggle('fa-times');
+            const toggle = document.querySelector('.toggle i');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.classList.remove('fa-times');
+                toggle.classList.add('fa-bars');
+            } else {
+                menu.style.display = 'block';
+                toggle.classList.remove('fa-bars');
+                toggle.classList.add('fa-times');
+            }
         }
     </script>
 </head>
 <body>
     <header>
-        <i class="fas fa-bars toggle" onclick="toggleMenu()"></i>
-        <h1>Tosin Adewole</h1>
+        <div class="logo-and-name">
+            <h1>Tosin Adewole</h1>
+        </div>
+        <div class="toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
         <div class="menu">
-            <a href="#contact">Contact</a>
-            <a href="#blog">Blog</a>
+            <a href="#home">Home</a>
+            <a href="#about">About Me</a>
             <a href="#projects">Projects</a>
+            <a href="#articles">Articles</a>
+            <a href="#contact">Get in Touch</a>
+            <a href="#resume">Resume</a>
         </div>
     </header>
-    <section>
+    <section id="home">
+        <img src="background-pic.jpg" alt="Background Picture" style="width: 100%;">
         <img src="profile-pic.jpg" alt="Tosin Adewole" class="profile-pic">
+    </section>
+    <section id="about">
         <h2>About Me</h2>
-        <p>Hello, I'm Tosin Matthew Adewole, a tech enthusiast with a passion for data analysis, research, and many other fields. I am dedicated to helping people find the best solutions to their challenges, offering my expertise in various domains.</p>
+        <p>Hello, I'm Tosin Matthew Adewole. I'm an expert in data analysis, writing, research, graphics design, customer service, marketing, virtual assistance, and more.</p>
     </section>
-    <section id="projects" class="center">
+    <section id="projects">
         <h2>Selected Projects</h2>
-        <div class="project">
-            <div class="project-title">Project 1</div>
+        <div class="project-thumbnail">
+            <span class="project-title">Project Title</span>
         </div>
-        <div class="project">
-            <div class="project-title">Project 2</div>
+        <div class="project-thumbnail">
+            <span class="project-title">Project Title</span>
         </div>
-        <div class="project">
-            <div class="project-title">Project 3</div>
+        <div class="project-thumbnail">
+            <span class="project-title">Project Title</span>
         </div>
-        <a href="#" class="resume-button">See more</a>
     </section>
-    <section id="contact">
-        <h2>I'd love to hear from you</h2>
-        <form action="https://formspree.io/f/your-email" method="POST">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="_replyto" required>
-            <label for="message">How Can I Help?</label>
-            <textarea id="message" name="message" required></textarea>
+    <section id="articles">
+        <h2>Articles</h2>
+    </section>
+    <section id="contact" class="get-in-touch">
+        <h2>Get in Touch</h2>
+        <form action="mailto:tosinadewole@hotmail.com" method="post" enctype="text/plain">
+            <input type="text" name="name" placeholder="Name">
+            <input type="email" name="email" placeholder="Email">
+            <textarea name="message" placeholder="How Can I Help?"></textarea>
             <button type="submit">Submit</button>
         </form>
     </section>
-    <section id="resume">
-        <a href="your-resume-link.pdf" class="resume-button">My Resume</a>
-    </section>
-    <footer>
+    <footer class="compact-footer">
         <ul class="social-icons">
             <li><a href="https://x.com/teeblaze?t=dJ1zbkAZNH4SbUbgZynyfA&s=09" target="_blank"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://www.instagram.com/techblazer001?igsh=YzljYTk1ODg3Zg==" target="_blank"><i class="fab fa-instagram"></i></a></li>
             <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin"></i></a></li>
         </ul>
         <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
         <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
