@@ -19,11 +19,8 @@
             background-position: center;
             color: #fff;
             height: 500px; /* Adjust this height to match the background picture space */
-            padding: 1em;
+            padding: 0; /* Remove padding */
             position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
         header::after {
             content: '';
@@ -35,19 +32,23 @@
             background: rgba(0, 0, 0, 0.5); /* Light tint effect */
             z-index: 0;
         }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align items to the top */
+            padding: 1em;
+            position: relative;
+            z-index: 1;
+        }
         header h1 {
             margin: 0;
             font-size: 1.5em;
-            position: relative;
-            z-index: 1;
         }
         .toggle {
             cursor: pointer;
-            position: relative;
-            z-index: 1;
         }
         .toggle i {
-            font-size: 24px; /* Increased toggle size */
+            font-size: 24px; /* Toggle size */
         }
         .menu {
             display: none;
@@ -107,9 +108,9 @@
         }
         .profile-pic {
             display: block;
-            margin: -100px auto 0 auto; /* Adjust positioning */
-            width: 200px; /* Increased size */
-            height: 200px; /* Increased size */
+            margin: -150px auto 0 auto; /* Adjust positioning */
+            width: 200px; /* Size */
+            height: 200px; /* Size */
             border-radius: 50%;
             object-fit: cover;
             position: relative;
@@ -146,6 +147,8 @@
             margin: 0.5em 0;
             border: none;
             border-radius: 5px;
+            background: linear-gradient(135deg, #333333, #666666); /* Match background color */
+            color: #fff; /* Ensure text is visible */
         }
         .get-in-touch form button {
             padding: 0.5em 1em;
@@ -176,6 +179,9 @@
         .compact-footer {
             font-size: 0.8em;
         }
+        .contact-padding {
+            padding: 2em; /* Add padding between sections */
+        }
     </style>
     <script>
         function toggleMenu() {
@@ -195,19 +201,11 @@
 </head>
 <body>
     <header>
-        <div class="logo-and-name">
+        <div class="header-content">
             <h1>Tosin Adewole</h1>
-        </div>
-        <div class="toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="menu">
-            <a href="#home">Home</a>
-            <a href="#about">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#articles">Articles</a>
-            <a href="#contact">Get in Touch</a>
-            <a href="#resume">Resume</a>
+            <div class="toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
     <section id="home">
@@ -246,6 +244,7 @@
             <textarea name="message" placeholder="Kindly leave a message"></textarea>
             <button type="submit">Submit</button>
         </form>
+        <div class="contact-padding"></div>
         <div class="resume-container">
             <a href="resume.pdf" class="resume-button" target="_blank">View Resume</a>
         </div>
