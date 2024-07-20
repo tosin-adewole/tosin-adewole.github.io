@@ -22,8 +22,9 @@
             position: relative;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            height: 800px; /* Increase the height of the header */
+            align-items: center;
+            height: 800px;
+            width: 100%;
         }
         header::after {
             content: '';
@@ -45,6 +46,8 @@
             cursor: pointer;
             position: relative;
             z-index: 1;
+            font-size: 1.5em; /* Increased size */
+            right: 0;
         }
         .menu {
             display: none;
@@ -109,6 +112,10 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow effect */
+            border: 5px solid #fff; /* White round border */
+            position: relative;
+            top: -80px; /* Move the profile picture up */
         }
         .project-thumbnail {
             width: 100%;
