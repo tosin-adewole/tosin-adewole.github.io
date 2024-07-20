@@ -6,7 +6,6 @@
     <title>Tosin Adewole: Expert in Data Analysis, Writing, Research & More</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -59,13 +58,17 @@
             right: 1em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             width: 200px;
+            border: 1px solid #888;
         }
         .menu a {
             display: block;
             padding: 1em;
             color: #fff;
             text-decoration: none;
-            border-bottom: 1px solid #444;
+            border-bottom: 1px solid #888;
+        }
+        .menu a:last-child {
+            border-bottom: none;
         }
         .menu a:hover {
             background: #444;
@@ -73,7 +76,7 @@
         section {
             padding: 2em;
             max-width: 800px;
-            margin: 2em auto;
+            margin: 0 auto;
             background: #222;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
@@ -110,7 +113,7 @@
         }
         .profile-pic {
             display: block;
-            margin: -150px auto 0 auto;
+            margin: -200px auto 0 auto;
             width: 200px;
             height: 200px;
             border-radius: 50%;
@@ -133,6 +136,7 @@
             align-items: center;
             margin-bottom: 1em;
             transition: background 0.3s;
+            cursor: pointer;
         }
         .project-thumbnail:hover {
             background: rgba(0, 0, 0, 0.5);
@@ -197,6 +201,13 @@
             <h1>Tosin Adewole</h1>
             <div class="toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
+            </div>
+            <div class="menu">
+                <a href="#home">Home</a>
+                <a href="#about">About Me</a>
+                <a href="#projects">Projects</a>
+                <a href="#articles">Articles</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
     </header>
@@ -290,3 +301,5 @@
     </script>
 </body>
 </html>
+
+
