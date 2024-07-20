@@ -22,7 +22,8 @@
             position: relative;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            height: 800px; /* Increase the height of the header */
         }
         header::after {
             content: '';
@@ -156,17 +157,11 @@
             font-size: 0.8em;
         }
         .background-image-container {
-            height: calc(100vh - 80px); /* Ensures the background image fills the remaining part below the header */
             background-image: url('/mnt/data/Screenshot_20240719-113418_Opera.jpg');
             background-size: cover;
-            background-position: bottom;
+            background-position: center;
             position: relative;
             z-index: 0;
-        }
-        .background-image-container img.profile-pic {
-            position: relative;
-            z-index: 1;
-            top: -75px; /* Adjusts the position of the profile picture */
         }
         .resume-container {
             text-align: center;
@@ -219,10 +214,8 @@
             <a href="#contact">Get in Touch</a>
             <a href="#resume">Resume</a>
         </div>
-    </header>
-    <section id="home" class="background-image-container">
         <img src="profile-pic.jpg" alt="Tosin Adewole" class="profile-pic">
-    </section>
+    </header>
     <section id="about">
         <h2>About Me</h2>
         <p>Hello, I'm Tosin Matthew Adewole. I'm an expert in data analysis and research with a background in Economics. I'm a tech enthusiast always looking to create value and help individuals and businesses make data-driven decisions.</p>
