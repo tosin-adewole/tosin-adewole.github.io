@@ -6,6 +6,7 @@
     <title>Tosin Adewole: Expert in Data Analysis, Writing, Research & More</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Your CSS styles here */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -58,17 +59,13 @@
             right: 1em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             width: 200px;
-            border: 1px solid #888;
         }
         .menu a {
             display: block;
             padding: 1em;
             color: #fff;
             text-decoration: none;
-            border-bottom: 1px solid #888;
-        }
-        .menu a:last-child {
-            border-bottom: none;
+            border-bottom: 1px solid #444;
         }
         .menu a:hover {
             background: #444;
@@ -76,7 +73,7 @@
         section {
             padding: 2em;
             max-width: 800px;
-            margin: 0 auto;
+            margin: 2em auto;
             background: #222;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
@@ -113,7 +110,7 @@
         }
         .profile-pic {
             display: block;
-            margin: -200px auto 0 auto;
+            margin: -150px auto 0 auto;
             width: 200px;
             height: 200px;
             border-radius: 50%;
@@ -136,7 +133,6 @@
             align-items: center;
             margin-bottom: 1em;
             transition: background 0.3s;
-            cursor: pointer;
         }
         .project-thumbnail:hover {
             background: rgba(0, 0, 0, 0.5);
@@ -202,13 +198,6 @@
             <div class="toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
-            <div class="menu">
-                <a href="#home">Home</a>
-                <a href="#about">About Me</a>
-                <a href="#projects">Projects</a>
-                <a href="#articles">Articles</a>
-                <a href="#contact">Contact</a>
-            </div>
         </div>
     </header>
     <section id="home">
@@ -264,20 +253,40 @@
     <footer class="compact-footer">
         <ul class="social-icons">
             <li><a href="https://x.com/teeblaze?t=dJ1zbkAZNH4SbUbgZynyfA&s=09" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://github.com/techmaestro02" target="_blank"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://www.instagram.com/your-profile" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.instagram.com/techblazer001?igsh=YzljYTk1ODg3Zg==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin"></i></a></li>
         </ul>
+        <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
         <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
-    
+
     <script>
         function toggleMenu() {
-            var menu = document.querySelector('.menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            const menu = document.querySelector('.menu');
+            const toggle = document.querySelector('.toggle i');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.classList.remove('fa-times');
+                toggle.classList.add('fa-bars');
+            } else {
+                menu.style.display = 'block';
+                toggle.classList.remove('fa-bars');
+                toggle.classList.add('fa-times');
+            }
         }
+
+        document.querySelectorAll('.project-thumbnail').forEach(item => {
+            item.addEventListener('click', () => {
+                window.open('project-link.html', '_blank');
+            });
+        });
+
+        document.querySelectorAll('.article-thumbnail').forEach(item => {
+            item.addEventListener('click', () => {
+                window.open('article-link.html', '_blank');
+            });
+        });
     </script>
 </body>
 </html>
-
-
