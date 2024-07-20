@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tosin Adewole: Tech Enthusiast & Problem Solver</title>
+    <title>Tosin Adewole: Expert in Data Analysis, Writing, Research & More</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -14,22 +14,37 @@
             color: #fff;
         }
         header {
-            background-image: url('background-pic.jpg');
+            background-image: url('/mnt/data/Screenshot_20240719-113418_Opera.jpg');
             background-size: cover;
-            background-position: center;
+            background-position: top;
             color: #fff;
             padding: 1em;
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 20vh;
+        }
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Light tint effect */
+            z-index: 0;
         }
         header h1 {
             margin: 0;
             font-size: 1.5em;
+            position: relative;
+            z-index: 1;
         }
         .toggle {
             cursor: pointer;
-            font-size: 1.8em;
+            position: relative;
+            z-index: 1;
         }
         .menu {
             display: none;
@@ -49,25 +64,6 @@
         .menu a:hover {
             background: #444;
         }
-        .profile-container {
-            position: relative;
-            margin-top: -1em; /* Removes the space between header and background */
-        }
-        .profile-background {
-            width: 100%;
-            height: auto;
-        }
-        .profile-pic {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            bottom: -50px;
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #fff;
-        }
         section {
             padding: 2em;
             max-width: 800px;
@@ -81,19 +77,61 @@
         p {
             line-height: 1.6;
         }
-        .resume-button {
-            display: inline-block;
-            padding: 0.5em 1em;
+        footer {
             background: #000;
             color: #fff;
-            text-decoration: none;
-            border: 1px solid #fff;
-            border-radius: 5px;
-            transition: background 0.3s;
-            margin-top: 2em;
+            text-align: center;
+            padding: 1em 0;
+            width: 100%;
         }
-        .resume-button:hover {
+        .contact a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .social-icons {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+        .social-icons li {
+            display: inline;
+            margin: 0 10px;
+        }
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+        .profile-pic {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .project-thumbnail {
+            width: 100%;
+            height: 200px;
             background: #444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1em;
+            transition: background 0.3s;
+        }
+        .project-thumbnail:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .project-title {
+            color: #fff;
+            display: none;
+        }
+        .project-thumbnail:hover .project-title {
+            display: block;
+        }
+        .get-in-touch {
+            text-align: center;
         }
         .get-in-touch form input,
         .get-in-touch form textarea {
@@ -118,23 +156,33 @@
         .compact-footer {
             font-size: 0.8em;
         }
-        .social-icons {
-            list-style: none;
-            padding: 0;
-            text-align: center;
+        .background-container {
+            width: 100%;
+            overflow: hidden;
         }
-        .social-icons li {
-            display: inline;
-            margin: 0 10px;
-        }
-        .social-icons a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px;
+        .background-image {
+            width: 100%;
+            height: 80vh;
+            background-image: url('/mnt/data/Screenshot_20240719-113418_Opera.jpg');
+            background-size: cover;
+            background-position: bottom;
         }
         .resume-container {
             text-align: center;
             padding-top: 2em;
+        }
+        .resume-button {
+            display: inline-block;
+            padding: 0.5em 1em;
+            background: #000;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .resume-button:hover {
+            background: #444;
         }
     </style>
     <script>
@@ -170,13 +218,15 @@
             <a href="#resume">Resume</a>
         </div>
     </header>
-    <div class="profile-container">
-        <img src="background-pic.jpg" alt="Background Picture" class="profile-background">
-        <img src="profile-pic.jpg" alt="Tosin Adewole" class="profile-pic">
+    <div class="background-container">
+        <div class="background-image"></div>
     </div>
+    <section id="home">
+        <img src="profile-pic.jpg" alt="Tosin Adewole" class="profile-pic">
+    </section>
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello, I'm Tosin Adewole, a tech enthusiast with a strong background in data analysis and research. My passion is solving problems and providing solutions that create value for people and businesses. With a keen eye for detail and a drive for excellence, I bring a creative and professional approach to every project I undertake.</p>
+        <p>Hello, I'm Tosin Matthew Adewole. I'm an expert in data analysis, writing, research, graphics design, customer service, marketing, virtual assistance, and more. I find joy in creating value and solving problems for people and businesses.</p>
     </section>
     <section id="projects">
         <h2>Selected Projects</h2>
@@ -213,6 +263,8 @@
             <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin"></i></a></li>
         </ul>
         <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
+        <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
 </body>
 </html>
+
