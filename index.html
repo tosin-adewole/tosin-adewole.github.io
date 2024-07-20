@@ -103,11 +103,14 @@
         }
         .profile-pic {
             display: block;
-            margin: 0 auto;
+            margin: -100px auto 0 auto; /* Adjust positioning */
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
+            position: relative;
+            z-index: 1;
+            border: 5px solid #fff; /* Add border to stand out */
         }
         .project-thumbnail {
             width: 100%;
@@ -150,6 +153,19 @@
             transition: background 0.3s;
         }
         .get-in-touch form button:hover {
+            background: #ccc;
+        }
+        .resume-button {
+            display: inline-block;
+            padding: 0.5em 1em;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin-top: 1em;
+        }
+        .resume-button:hover {
             background: #ccc;
         }
         .compact-footer {
@@ -195,7 +211,7 @@
     </section>
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello, I'm Tosin Matthew Adewole. I'm an expert in data analysis, writing, research, graphics design, customer service, marketing, virtual assistance, and more.</p>
+        <p>Hello, I'm Tosin Matthew Adewole, a multifaceted professional excelling in various domains including data analysis, writing, research, graphics design, customer service, marketing, and virtual assistance. With a robust background in law, specifically contract law, and extensive teaching experience across multiple universities, I bring a wealth of knowledge and expertise to every project. My passion lies in leveraging data-driven insights to drive strategic decisions, crafting compelling content, and providing top-notch support in various professional capacities.</p>
     </section>
     <section id="projects">
         <h2>Selected Projects</h2>
@@ -220,6 +236,7 @@
             <textarea name="message" placeholder="How Can I Help?"></textarea>
             <button type="submit">Submit</button>
         </form>
+        <a href="resume.pdf" class="resume-button" target="_blank">View Resume</a>
     </section>
     <footer class="compact-footer">
         <ul class="social-icons">
