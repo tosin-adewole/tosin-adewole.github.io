@@ -45,6 +45,9 @@
             position: relative;
             z-index: 1;
         }
+        .toggle i {
+            font-size: 24px; /* Increased toggle size */
+        }
         .menu {
             display: none;
             background: #000;
@@ -104,8 +107,8 @@
         .profile-pic {
             display: block;
             margin: -100px auto 0 auto; /* Adjust positioning */
-            width: 150px;
-            height: 150px;
+            width: 200px; /* Increased size */
+            height: 200px; /* Increased size */
             border-radius: 50%;
             object-fit: cover;
             position: relative;
@@ -158,15 +161,16 @@
         .resume-button {
             display: inline-block;
             padding: 0.5em 1em;
-            background: #fff;
-            color: #000;
+            background: #000; /* Black background */
+            color: #fff;
             text-decoration: none;
             border-radius: 5px;
+            border: 2px solid #fff; /* White outline */
             transition: background 0.3s;
             margin-top: 1em;
         }
         .resume-button:hover {
-            background: #ccc;
+            background: #444;
         }
         .compact-footer {
             font-size: 0.8em;
@@ -206,12 +210,12 @@
         </div>
     </header>
     <section id="home">
-        <img src="background-pic.jpg" alt="Background Picture" style="width: 100%;">
+        <img src="background-pic.jpg" alt="Background Picture" style="width: 100%; margin-top: -1em;"> <!-- Adjusted to remove gap -->
         <img src="profile-pic.jpg" alt="Tosin Adewole" class="profile-pic">
     </section>
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello, I'm Tosin Matthew Adewole, a multifaceted professional excelling in various domains including data analysis, writing, research, graphics design, customer service, marketing, and virtual assistance. With a robust background in law, specifically contract law, and extensive teaching experience across multiple universities, I bring a wealth of knowledge and expertise to every project. My passion lies in leveraging data-driven insights to drive strategic decisions, crafting compelling content, and providing top-notch support in various professional capacities.</p>
+        <p>Hello, I'm Tosin Matthew Adewole, a tech enthusiast with a strong background in economics. I specialize in data analysis, research, and a variety of other fields. My passion lies in leveraging technology to solve problems and help people achieve their goals. With a diverse skill set that includes writing, graphics design, customer service, marketing, and virtual assistance, I bring a unique blend of expertise to every project. My background in law, specifically contract law, combined with extensive teaching experience, allows me to provide well-rounded and effective solutions in both academic and professional settings.</p>
     </section>
     <section id="projects">
         <h2>Selected Projects</h2>
