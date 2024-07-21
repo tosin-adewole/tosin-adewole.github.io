@@ -125,7 +125,40 @@
             transition: transform 0.5s;
         }
         .profile-pic:hover {
-            transform: rotate(360deg);
+            transform: rotateY(180deg);
+        }
+        .welcome-message {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: -50px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .expertise-section {
+            display: flex;
+            overflow-x: auto;
+            padding: 1em 0;
+        }
+        .expertise-box {
+            flex: 0 0 auto;
+            width: 200px;
+            margin: 0 1em;
+            background: #444;
+            text-align: center;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.5s;
+        }
+        .expertise-box:hover {
+            transform: translateY(-10px);
+        }
+        .expertise-icon {
+            font-size: 2em;
+            margin-bottom: 0.5em;
         }
         .project-thumbnail {
             width: 100%;
@@ -156,7 +189,7 @@
             width: 100%;
             padding: 0.5em;
             margin: 0.5em 0;
-            border: none;
+            border: 1px solid #fff;
             border-radius: 5px;
             background: linear-gradient(135deg, #333333, #666666);
             color: #fff;
@@ -165,13 +198,13 @@
             padding: 0.5em 1em;
             border: none;
             border-radius: 5px;
-            background: #fff;
-            color: #000;
+            background: #000;
+            color: #fff;
             cursor: pointer;
             transition: background 0.3s;
         }
         .get-in-touch form button:hover {
-            background: #ccc;
+            background: #444;
         }
         .resume-button {
             display: inline-block;
@@ -210,6 +243,9 @@
                 <a href="#contact">Contact</a>
             </div>
         </div>
+        <div class="welcome-message">
+            <p>Welcome! Data tells stories, and a great one at that... Let me take you on a ride of creative solutions to problems.</p>
+        </div>
     </header>
     <section id="home">
         <img src="profile-pic.jpg" alt="Tosin Adewole" class="profile-pic">
@@ -217,6 +253,40 @@
     <section id="about">
         <h2>About Me</h2>
         <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
+    </section>
+    <section class="expertise-section">
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-chart-bar"></i></div>
+            <p>Data Analysis</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-search"></i></div>
+            <p>Research</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-pen"></i></div>
+            <p>Writing</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-paint-brush"></i></div>
+            <p>Graphics Design</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-headset"></i></div>
+            <p>CRM</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-user-plus"></i></div>
+            <p>Lead Generation</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-bullhorn"></i></div>
+            <p>Digital Marketing</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-envelope"></i></div>
+            <p>Email Management</p>
+        </div>
     </section>
     <section id="projects">
         <h2>Selected Projects</h2>
@@ -250,10 +320,10 @@
     </section>
     <section id="contact" class="get-in-touch">
         <h2>Get in Touch</h2>
-        <form action="mailto:tosinadewole@hotmail.com" method="post" enctype="text/plain">
-            <input type="text" name="name" placeholder="Name">
-            <input type="email" name="email" placeholder="Email">
-            <textarea name="message" placeholder="Kindly leave a message"></textarea>
+        <form action="https://formspree.io/f/{your-form-id}" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="_replyto" placeholder="Email" required>
+            <textarea name="message" placeholder="Kindly leave a message" required></textarea>
             <button type="submit">Submit</button>
         </form>
         <div class="contact-padding"></div>
@@ -301,5 +371,3 @@
     </script>
 </body>
 </html>
-
-
