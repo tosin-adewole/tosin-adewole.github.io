@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #333333, #666666);
+            background: #222; /* Updated background color */
             color: #fff;
         }
         header {
@@ -41,20 +41,21 @@
             align-items: flex-start;
             padding: 1em;
             position: relative;
-            width: 100%;
             z-index: 1;
+            width: 100%;
         }
         header h1 {
             margin: 0;
             font-size: 1.5em;
-            flex-grow: 1;
-            text-align: left;
+            position: absolute;
+            left: 1em; /* Moved to the left */
+            top: 1em;  /* Position adjusted */
         }
         .toggle {
             cursor: pointer;
             position: absolute;
-            top: 1em;
-            right: 1em;
+            right: 1em; /* Moved to the right */
+            top: 1em; /* Position adjusted */
         }
         .toggle i {
             font-size: 24px;
@@ -87,7 +88,7 @@
             font-size: 1.2em;
             color: #fff;
             position: absolute;
-            top: 50%;
+            top: 55%; /* Adjusted position */
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
@@ -159,7 +160,7 @@
         }
         .expertise-container {
             display: flex;
-            animation: scrollExpertise 15s linear infinite; /* Adjusted speed */
+            animation: scrollExpertise 10s linear infinite; /* Faster scroll */
         }
         @keyframes scrollExpertise {
             from { transform: translateX(0); }
@@ -176,10 +177,12 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             height: 100px; /* Reduced height for compact look */
             flex-shrink: 0;
-            transition: transform 0.5s;
+            perspective: 1000px; /* 3D effect */
+            transform: rotateY(10deg); /* 3D effect */
+            transition: transform 0.5s ease-in-out;
         }
         .expertise-box:hover {
-            transform: scale(1.1);
+            transform: rotateY(0); /* 3D effect on hover */
         }
         .expertise-icon {
             margin-bottom: 0.5em;
@@ -243,7 +246,6 @@
             border: 2px solid #fff;
             transition: background 0.3s;
             margin-top: 1em;
-            align-self: center;
         }
         .resume-button:hover {
             background: #444;
@@ -280,75 +282,76 @@
     </section>
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
-    </section>
-    <section class="expertise-section">
-        <h2>My Expertise</h2>
-        <div class="expertise-container">
-            <div class="expertise-box">
-                <div class="expertise-icon"><i class="fas fa-chart-bar"></i></div>
-                <div>Data Analysis</div>
-            </div>
-            <div class="expertise-box">
-                <div class="expertise-icon"><i class="fas fa-pen"></i></div>
-                <div>Writing</div>
-            </div>
-            <div class="expertise-box">
-                <div class="expertise-icon"><i class="fas fa-search"></i></div>
-                <div>Research</div>
-            </div>
-            <div class="expertise-box">
-                <div class="expertise-icon"><i class="fas fa-paint-brush"></i></div>
-                <div>Graphic Design</div>
-            </div>
-            <div class="expertise-box">
-                <div class="expertise-icon"><i class="fas fa-users"></i></div>
-                <div>CRM Tools</div>
-            </div>
-            <div class="expertise-box">
-                <div class="expertise-icon"><i class="fas fa-bullseye"></i></div>
-                <div>Lead Generation</div>
+        <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I bring a unique blend of skills to the table. My goal is to provide solutions that are not only effective but also practical and easy to implement.</p>
+        <h3>Expertise</h3>
+        <div class="expertise-section">
+            <div class="expertise-container">
+                <div class="expertise-box">
+                    <div class="expertise-icon"><i class="fas fa-chart-line"></i></div>
+                    <p>Data Analysis</p>
+                </div>
+                <div class="expertise-box">
+                    <div class="expertise-icon"><i class="fas fa-pencil-alt"></i></div>
+                    <p>Writing</p>
+                </div>
+                <div class="expertise-box">
+                    <div class="expertise-icon"><i class="fas fa-search"></i></div>
+                    <p>Research</p>
+                </div>
+                <div class="expertise-box">
+                    <div class="expertise-icon"><i class="fas fa-users"></i></div>
+                    <p>Customer Service</p>
+                </div>
+                <div class="expertise-box">
+                    <div class="expertise-icon"><i class="fas fa-laptop-code"></i></div>
+                    <p>Digital Marketing</p>
+                </div>
             </div>
         </div>
     </section>
     <section id="projects">
-        <h2>My Projects</h2>
+        <h2>Projects</h2>
         <div class="project-thumbnail">
-            <div class="project-title">Project 1</div>
+            <span class="project-title">Project 1: Data Dashboard</span>
         </div>
         <div class="project-thumbnail">
-            <div class="project-title">Project 2</div>
+            <span class="project-title">Project 2: Research Paper</span>
         </div>
         <div class="project-thumbnail">
-            <div class="project-title">Project 3</div>
+            <span class="project-title">Project 3: Graphic Design Portfolio</span>
         </div>
     </section>
     <section id="articles">
-        <h2>My Articles</h2>
-        <p>Coming soon...</p>
+        <h2>Articles</h2>
+        <p>Stay tuned for my latest articles on data analysis, research, and more.</p>
     </section>
     <section id="contact">
-        <h2>Contact Me</h2>
-        <div class="contact-padding">
-            <p>If you have any questions or would like to work together, feel free to reach out!</p>
-            <div class="social-icons">
+        <h2>Contact</h2>
+        <div class="contact">
+            <p>Feel free to reach out to me through any of the platforms below:</p>
+            <ul class="social-icons">
                 <li><a href="https://github.com/techmaestro02"><i class="fab fa-github"></i></a></li>
-                <li><a href="https://twitter.com/yourtwitterhandle"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://linkedin.com/in/yourlinkedinprofile"><i class="fab fa-linkedin"></i></a></li>
-            </div>
+                <li><a href="mailto:tosinadewole@hotmail.com"><i class="fas fa-envelope"></i></a></li>
+                <li><a href="https://linkedin.com/in/tosin-adewole"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+            <p>Or send me a message using the form below:</p>
             <div class="get-in-touch">
-                <form action="mailto:tosinadewole@hotmail.com" method="POST" enctype="text/plain">
+                <form action="https://formsubmit.co/your-email" method="POST">
+                    <input type="hidden" name="_subject" value="New submission!">
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send</button>
                 </form>
-                <a href="resume.pdf" class="resume-button" download>Download My Resume</a>
             </div>
+            <a href="resume.pdf" class="resume-button">Download My Resume</a>
         </div>
     </section>
-    <footer class="compact-footer">
-        <p>&copy; 2023 Tosin Adewole. All rights reserved.</p>
+    <footer>
+        <div class="compact-footer">
+            <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
+            <p class="contact-padding">For any inquiries, please <a href="mailto:tosinadewole@hotmail.com">email me</a>.</p>
+        </div>
     </footer>
     <script>
         function toggleMenu() {
