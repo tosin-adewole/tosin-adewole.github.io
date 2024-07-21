@@ -34,32 +34,18 @@
         }
         .header-content {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 1em;
             position: relative;
             z-index: 1;
-            height: 100%;
-            text-align: center;
         }
         header h1 {
             margin: 0;
-            font-size: 3em;
-        }
-        .header-message {
-            font-size: 1.2em;
-            margin: 20px 0;
-            animation: fadeIn 2s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            font-size: 1.5em;
         }
         .toggle {
             cursor: pointer;
-            position: absolute;
-            top: 20px;
-            right: 20px;
         }
         .toggle i {
             font-size: 24px;
@@ -68,8 +54,8 @@
             display: none;
             background: #000;
             position: absolute;
-            top: 60px;
-            right: 20px;
+            top: 3em;
+            right: 1em;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             width: 200px;
             border: 1px solid #888;
@@ -127,7 +113,7 @@
         }
         .profile-pic {
             display: block;
-            margin: -100px auto 0 auto;
+            margin: -200px auto 0 auto;
             width: 200px;
             height: 200px;
             border-radius: 50%;
@@ -141,23 +127,34 @@
         .profile-pic:hover {
             transform: rotateY(180deg);
         }
+        .welcome-message {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: -50px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
         .expertise-section {
             display: flex;
             overflow-x: auto;
-            margin-bottom: 2em;
+            padding: 1em 0;
         }
         .expertise-box {
-            background: #444;
-            padding: 1em;
-            margin: 0 10px;
             flex: 0 0 auto;
+            width: 200px;
+            margin: 0 1em;
+            background: #444;
             text-align: center;
-            border-radius: 5px;
-            width: 150px;
-            transition: transform 0.3s;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.5s;
         }
         .expertise-box:hover {
-            transform: scale(1.1);
+            transform: translateY(-10px);
         }
         .expertise-icon {
             font-size: 2em;
@@ -207,8 +204,7 @@
             transition: background 0.3s;
         }
         .get-in-touch form button:hover {
-            background: #ccc;
-            color: #000;
+            background: #444;
         }
         .resume-button {
             display: inline-block;
@@ -236,18 +232,19 @@
     <header>
         <div class="header-content">
             <h1>Tosin Adewole</h1>
-            <p class="header-message">Welcome! Data do tell stories, and a great one at that... Let me take you on a ride of creative solutions to problems.</p>
             <div class="toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
             <div class="menu">
                 <a href="#home">Home</a>
                 <a href="#about">About Me</a>
-                <a href="#expertise">Expertise</a>
                 <a href="#projects">Projects</a>
                 <a href="#articles">Articles</a>
                 <a href="#contact">Contact</a>
             </div>
+        </div>
+        <div class="welcome-message">
+            <p>Welcome! Data tells stories, and a great one at that... Let me take you on a ride of creative solutions to problems.</p>
         </div>
     </header>
     <section id="home">
@@ -257,20 +254,120 @@
         <h2>About Me</h2>
         <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
     </section>
-    <section id="expertise">
-        <h2>Expertise</h2>
-        <div class="expertise-section">
-            <div class="expertise-box">
-                <div class="expertise-icon"><i class="fas fa-chart-bar"></i></div>
-                <p>Data Analysis</p>
-            </div>
-            <div class="expertise-box">
-                <div class="expertise-icon"><i class="fas fa-search"></i></div>
-                <p>Research</p>
-            </div>
-            <div class="expertise-box">
-                <div class="expertise-icon"><i class="fas fa-pen"></i></div>
-                <p>Writing</p>
-            </div>
-            <div class="expertise-box">
-                <div class="expertise-icon"><i class="fas fa-paint
+    <section class="expertise-section">
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-chart-bar"></i></div>
+            <p>Data Analysis</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-search"></i></div>
+            <p>Research</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-pen"></i></div>
+            <p>Writing</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-paint-brush"></i></div>
+            <p>Graphics Design</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-headset"></i></div>
+            <p>CRM</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-user-plus"></i></div>
+            <p>Lead Generation</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-bullhorn"></i></div>
+            <p>Digital Marketing</p>
+        </div>
+        <div class="expertise-box">
+            <div class="expertise-icon"><i class="fas fa-envelope"></i></div>
+            <p>Email Management</p>
+        </div>
+    </section>
+    <section id="projects">
+        <h2>Selected Projects</h2>
+        <div class="project-thumbnail">
+            <span class="project-title">Project Title</span>
+        </div>
+        <div class="project-thumbnail">
+            <span class="project-title">Project Title</span>
+        </div>
+        <div class="project-thumbnail">
+            <span class="project-title">Project Title</span>
+        </div>
+        <div class="project-thumbnail">
+            <span class="project-title">Project Title</span>
+        </div>
+        <div class="project-thumbnail">
+            <span class="project-title">Project Title</span>
+        </div>
+    </section>
+    <section id="articles">
+        <h2>Articles</h2>
+        <div class="article-thumbnail">
+            <span class="article-title">Article Title</span>
+        </div>
+        <div class="article-thumbnail">
+            <span class="article-title">Article Title</span>
+        </div>
+        <div class="article-thumbnail">
+            <span class="article-title">Article Title</span>
+        </div>
+    </section>
+    <section id="contact" class="get-in-touch">
+        <h2>Get in Touch</h2>
+        <form action="https://formspree.io/f/{your-form-id}" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="_replyto" placeholder="Email" required>
+            <textarea name="message" placeholder="Kindly leave a message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <div class="contact-padding"></div>
+        <div class="resume-container">
+            <a href="resume.pdf" class="resume-button" target="_blank">View Resume</a>
+        </div>
+    </section>
+    <footer class="compact-footer">
+        <ul class="social-icons">
+            <li><a href="https://x.com/teeblaze?t=dJ1zbkAZNH4SbUbgZynyfA&s=09" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/techblazer001?igsh=YzljYTk1ODg3Zg==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+        <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
+        <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            const toggle = document.querySelector('.toggle i');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.classList.remove('fa-times');
+                toggle.classList.add('fa-bars');
+            } else {
+                menu.style.display = 'block';
+                toggle.classList.remove('fa-bars');
+                toggle.classList.add('fa-times');
+            }
+        }
+
+        document.querySelectorAll('.project-thumbnail').forEach(item => {
+            item.addEventListener('click', () => {
+                window.open('project-link.html', '_blank');
+            });
+        });
+
+        document.querySelectorAll('.article-thumbnail').forEach(item => {
+            item.addEventListener('click', () => {
+                window.open('article-link.html', '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
