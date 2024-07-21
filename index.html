@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #333333, #666666);
+            background: #222;
             color: #fff;
         }
         header {
@@ -21,9 +21,10 @@
             height: 500px;
             padding: 0;
             position: relative;
-        display: flex;
+            display: flex;
             flex-direction: column;
-            align-items: center;}
+            align-items: center;
+        }
         header::after {
             content: '';
             position: absolute;
@@ -37,8 +38,9 @@
         .header-content {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             padding: 1em;
+            width: 100%;
             position: relative;
             z-index: 1;
         }
@@ -80,7 +82,7 @@
             font-size: 1.2em;
             color: #fff;
             position: absolute;
-            top: 60%;
+            top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
@@ -152,7 +154,7 @@
         }
         .expertise-container {
             display: flex;
-            animation: scrollExpertise 20s linear infinite;
+            animation: scrollExpertise 10s linear infinite;
         }
         @keyframes scrollExpertise {
             from { transform: translateX(0); }
@@ -167,7 +169,7 @@
             width: 150px;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            height: 120px; /* Reduced height for compact look */
+            height: 100px; /* Reduced height for compact look */
             flex-shrink: 0;
         }
         .expertise-icon {
@@ -232,6 +234,7 @@
             border: 2px solid #fff;
             transition: background 0.3s;
             margin-top: 1em;
+            text-align: center;
         }
         .resume-button:hover {
             background: #444;
@@ -247,8 +250,8 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>Tosin Adewole</h1>
-            <div class="toggle" onclick="toggleMenu()">
+            <h1 style="margin-left: 10px;">Tosin Adewole</h1>
+            <div class="toggle" style="margin-right: 10px;" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
             <div class="menu">
@@ -260,7 +263,7 @@
             </div>
         </div>
         <div class="welcome-message">
-            <p> Where data meets creativity... Let's craft compelling stories together! </p>
+            <p>Where data meets creativity... Let's craft compelling stories together!</p>
         </div>
     </header>
     <section id="home">
@@ -271,120 +274,79 @@
         <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
     </section>
     <section class="expertise-section">
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-chart-bar"></i></div>
-            <p>Data Analysis</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-search"></i></div>
-            <p>Research</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-pen"></i></div>
-            <p>Writing</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-paint-brush"></i></div>
-            <p>Graphics Design</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-headset"></i></div>
-            <p>CRM</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-user-plus"></i></div>
-            <p>Lead Generation</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-bullhorn"></i></div>
-            <p>Digital Marketing</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-envelope"></i></div>
-            <p>Email Management</p>
+        <div class="expertise-container">
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-chart-bar"></i></div>
+                <p>Data Analysis</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-pen"></i></div>
+                <p>Writing</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-search"></i></div>
+                <p>Research</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-laptop"></i></div>
+                <p>Graphic Design</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-users"></i></div>
+                <p>CRM Tools</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-bullhorn"></i></div>
+                <p>Lead Generation</p>
+            </div>
         </div>
     </section>
     <section id="projects">
-        <h2>Selected Projects</h2>
+        <h2>Projects</h2>
         <div class="project-thumbnail">
-            <span class="project-title">Project Title</span>
+            <span class="project-title">Project 1: Data Visualization</span>
         </div>
         <div class="project-thumbnail">
-            <span class="project-title">Project Title</span>
+            <span class="project-title">Project 2: Market Research</span>
         </div>
         <div class="project-thumbnail">
-            <span class="project-title">Project Title</span>
-        </div>
-        <div class="project-thumbnail">
-            <span class="project-title">Project Title</span>
-        </div>
-        <div class="project-thumbnail">
-            <span class="project-title">Project Title</span>
+            <span class="project-title">Project 3: CRM Implementation</span>
         </div>
     </section>
     <section id="articles">
         <h2>Articles</h2>
-        <div class="article-thumbnail">
-            <span class="article-title">Article Title</span>
-        </div>
-        <div class="article-thumbnail">
-            <span class="article-title">Article Title</span>
-        </div>
-        <div class="article-thumbnail">
-            <span class="article-title">Article Title</span>
-        </div>
+        <p>Coming Soon...</p>
     </section>
-    <section id="contact" class="get-in-touch">
+    <section id="contact" class="contact-padding">
         <h2>Get in Touch</h2>
-        <form action="https://formspree.io/f/mnnajnvd" method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="_replyto" placeholder="Email" required>
-            <textarea name="message" placeholder="Kindly leave a message" required></textarea>
-            <button type="submit">Submit</button>
+        <form action="https://formspree.io/f/YOUR_FORMSPREE_URL" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
         </form>
-        <div class="contact-padding"></div>
-        <div class="resume-container">
-            <a href="resume.pdf" class="resume-button" target="_blank">View Resume</a>
-        </div>
+        <p class="contact">
+            <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a>
+        </p>
+        <ul class="social-icons">
+            <li><a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
     </section>
     <footer class="compact-footer">
-        <ul class="social-icons">
-            <li><a href="https://x.com/teeblaze?t=dJ1zbkAZNH4SbUbgZynyfA&s=09" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://www.instagram.com/techblazer001?igsh=YzljYTk1ODg3Zg==" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-        </ul>
-        <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
         <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
-
     <script>
         function toggleMenu() {
-            const menu = document.querySelector('.menu');
-            const toggle = document.querySelector('.toggle i');
+            var menu = document.querySelector('.menu');
             if (menu.style.display === 'block') {
                 menu.style.display = 'none';
-                toggle.classList.remove('fa-times');
-                toggle.classList.add('fa-bars');
             } else {
                 menu.style.display = 'block';
-                toggle.classList.remove('fa-bars');
-                toggle.classList.add('fa-times');
             }
         }
-
-        document.querySelectorAll('.project-thumbnail').forEach(item => {
-            item.addEventListener('click', () => {
-                window.open('project-link.html', '_blank');
-            });
-        });
-
-        document.querySelectorAll('.article-thumbnail').forEach(item => {
-            item.addEventListener('click', () => {
-                window.open('article-link.html', '_blank');
-            });
-        });
     </script>
 </body>
 </html>
-
