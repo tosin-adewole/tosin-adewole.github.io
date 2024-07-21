@@ -19,8 +19,8 @@
             background-position: center;
             color: #fff;
             height: 500px;
-            padding: 0;
             position: relative;
+            text-align: center;
         }
         header::after {
             content: '';
@@ -33,16 +33,26 @@
             z-index: 0;
         }
         .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 1em;
             position: relative;
             z-index: 1;
+            padding: 1em;
         }
         header h1 {
             margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        .welcome-message {
             font-size: 1.5em;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+            z-index: 1;
+            padding: 0 10px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         .toggle {
             cursor: pointer;
@@ -113,7 +123,7 @@
         }
         .profile-pic {
             display: block;
-            margin: -200px auto 0 auto;
+            margin: 20px auto;
             width: 200px;
             height: 200px;
             border-radius: 50%;
@@ -122,43 +132,11 @@
             z-index: 1;
             border: 5px solid #fff;
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: transform 0.5s;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: transform 0.6s;
         }
         .profile-pic:hover {
-            transform: rotateY(180deg);
-        }
-        .welcome-message {
-            text-align: center;
-            font-size: 1.2em;
-            margin-top: -50px;
-            animation: fadeIn 3s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .expertise-section {
-            display: flex;
-            overflow-x: auto;
-            padding: 1em 0;
-        }
-        .expertise-box {
-            flex: 0 0 auto;
-            width: 200px;
-            margin: 0 1em;
-            background: #444;
-            text-align: center;
-            padding: 1em;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: transform 0.5s;
-        }
-        .expertise-box:hover {
-            transform: translateY(-10px);
-        }
-        .expertise-icon {
-            font-size: 2em;
-            margin-bottom: 0.5em;
+            transform: perspective(1000px) rotateY(180deg);
         }
         .project-thumbnail {
             width: 100%;
@@ -181,30 +159,65 @@
         .project-thumbnail:hover .project-title {
             display: block;
         }
-        .get-in-touch {
+        .expertise {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+        .expertise-box {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            background: #333;
+            margin: 10px;
+            border-radius: 10px;
             text-align: center;
+            vertical-align: top;
+            position: relative;
+            animation: slide 15s linear infinite;
+            padding: 10px;
+        }
+        .expertise-icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .expertise p {
+            color: #fff;
+            margin: 0;
+        }
+        .get-in-touch form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .get-in-touch form input,
         .get-in-touch form textarea {
-            width: 100%;
+            width: calc(100% - 20px);
             padding: 0.5em;
-            margin: 0.5em 0;
+            margin: 0.5em 10px;
             border: 1px solid #fff;
             border-radius: 5px;
-            background: linear-gradient(135deg, #333333, #666666);
+            background: #333;
             color: #fff;
         }
         .get-in-touch form button {
             padding: 0.5em 1em;
-            border: none;
+            border: 2px solid #fff;
             border-radius: 5px;
-            background: #000;
-            color: #fff;
+            background: #fff;
+            color: #000;
             cursor: pointer;
             transition: background 0.3s;
+            margin: 10px;
+            align-self: center;
         }
         .get-in-touch form button:hover {
-            background: #444;
+            background: #ccc;
         }
         .resume-button {
             display: inline-block;
@@ -232,19 +245,20 @@
     <header>
         <div class="header-content">
             <h1>Tosin Adewole</h1>
+            <div class="welcome-message">
+                <p>Welcome! Data do tell stories, and a great one at that... Let me take you on a ride of creative solutions to problems.</p>
+            </div>
             <div class="toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
             <div class="menu">
                 <a href="#home">Home</a>
                 <a href="#about">About Me</a>
+                <a href="#expertise">Expertise</a>
                 <a href="#projects">Projects</a>
                 <a href="#articles">Articles</a>
                 <a href="#contact">Contact</a>
             </div>
-        </div>
-        <div class="welcome-message">
-            <p>Welcome! Data tells stories, and a great one at that... Let me take you on a ride of creative solutions to problems.</p>
         </div>
     </header>
     <section id="home">
@@ -254,38 +268,41 @@
         <h2>About Me</h2>
         <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
     </section>
-    <section class="expertise-section">
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-chart-bar"></i></div>
-            <p>Data Analysis</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-search"></i></div>
-            <p>Research</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-pen"></i></div>
-            <p>Writing</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-paint-brush"></i></div>
-            <p>Graphics Design</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-headset"></i></div>
-            <p>CRM</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-user-plus"></i></div>
-            <p>Lead Generation</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-bullhorn"></i></div>
-            <p>Digital Marketing</p>
-        </div>
-        <div class="expertise-box">
-            <div class="expertise-icon"><i class="fas fa-envelope"></i></div>
-            <p>Email Management</p>
+    <section id="expertise">
+        <h2>Expertise</h2>
+        <div class="expertise">
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-database"></i></div>
+                <p>Data Analysis</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-search"></i></div>
+                <p>Research</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-pen"></i></div>
+                <p>Writing</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-paint-brush"></i></div>
+                <p>Graphics Design</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-cogs"></i></div>
+                <p>CRM</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-arrow-up"></i></div>
+                <p>Lead Generation</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-bullhorn"></i></div>
+                <p>Digital Marketing</p>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-envelope"></i></div>
+                <p>Email Management</p>
+            </div>
         </div>
     </section>
     <section id="projects">
@@ -320,10 +337,10 @@
     </section>
     <section id="contact" class="get-in-touch">
         <h2>Get in Touch</h2>
-        <form action="https://formspree.io/f/{your-form-id}" method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="_replyto" placeholder="Email" required>
-            <textarea name="message" placeholder="Kindly leave a message" required></textarea>
+        <form action="https://formspree.io/f/mnnajnvd" method="post">
+            <input type="text" name="name" placeholder="Name">
+            <input type="email" name="email" placeholder="Email">
+            <textarea name="message" placeholder="Kindly leave a message"></textarea>
             <button type="submit">Submit</button>
         </form>
         <div class="contact-padding"></div>
