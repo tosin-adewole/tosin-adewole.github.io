@@ -84,7 +84,7 @@
         }
         .welcome-message {
             text-align: center;
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #fff;
             position: absolute;
             top: 50%;
@@ -259,7 +259,7 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>Tosin Adewole</h1>
+            <h1> Tosin Adewole</h1>
             <div class="toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
@@ -272,7 +272,7 @@
             </div>
         </div>
         <div class="welcome-message">
-            <p> Where data meets creativity... Let's craft compelling stories together! </p>
+            <p>...where data meets creativity. Let's craft compelling stories together! </p>
         </div>
     </header>
     <section id="home">
@@ -312,49 +312,86 @@
         </div>
     </section>
     <section id="projects">
-        <h2>My Projects</h2>
+        <h2>Selected Projects</h2>
         <div class="project-thumbnail">
-            <div class="project-title">Project 1</div>
+            <span class="project-title">Project 1</span>
         </div>
         <div class="project-thumbnail">
-            <div class="project-title">Project 2</div>
+            <span class="project-title">Project 2</span>
         </div>
         <div class="project-thumbnail">
-            <div class="project-title">Project 3</div>
+            <span class="project-title">Project 3</span>
+        </div>
+        <div class="project-thumbnail">
+            <span class="project-title">Project 4</span>
+        </div>
+        <div class="project-thumbnail">
+            <span class="project-title">Project 5</span>
         </div>
     </section>
     <section id="articles">
-        <h2>My Articles</h2>
-        <p>Coming soon...</p>
+        <h2>Articles</h2>
+        <div class="article-thumbnail">
+            <span class="article-title">Article 1</span>
+        </div>
+        <div class="article-thumbnail">
+            <span class="article-title">Article 2</span>
+        </div>
+        <div class="article-thumbnail">
+            <span class="article-title">Article 3</span>
+        </div>
     </section>
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <div class="contact-padding">
-            <p>If you have any questions or would like to work together, feel free to reach out!</p>
-            <div class="social-icons">
-                <li><a href="https://github.com/techmaestro02"><i class="fab fa-github"></i></a></li>
-                <li><a href="https://twitter.com/yourtwitterhandle"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://linkedin.com/in/yourlinkedin"><i class="fab fa-linkedin"></i></a></li>
-            </div>
-            <div class="get-in-touch">
-                <form action="mailto:tosinadewole@hotmail.com" method="POST" enctype="text/plain">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
-                </form>
-                <a href="resume.pdf" class="resume-button" download>Download My Resume</a>
-            </div>
+    <section id="contact" class="get-in-touch">
+        <h2>Get in Touch</h2>
+        <form action="https://formspree.io/f/mnnajnvd" method="POST">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="email" name="_replyto" placeholder="Email" required>
+            <textarea name="message" placeholder="Kindly leave a message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="contact-padding"></div>
+        <div class="resume-container">
+            <a href="resume.pdf" class="resume-button" target="_blank">View  My Resume</a>
         </div>
     </section>
     <footer class="compact-footer">
-        <p>&copy; 2023 Tosin Adewole. All rights reserved.</p>
+        <ul class="social-icons">
+            <li><a href="https://x.com/teeblaze?t=dJ1zbkAZNH4SbUbgZynyfA&s=09" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/techblazer001?igsh=YzljYTk1ODg3Zg==" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+        <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
+        <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
+
     <script>
         function toggleMenu() {
             const menu = document.querySelector('.menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            const toggle = document.querySelector('.toggle i');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                toggle.classList.remove('fa-times');
+                toggle.classList.add('fa-bars');
+            } else {
+                menu.style.display = 'block';
+                toggle.classList.remove('fa-bars');
+                toggle.classList.add('fa-times');
+            }
         }
+
+        document.querySelectorAll('.project-thumbnail').forEach(item => {
+            item.addEventListener('click', () => {
+                window.open('project-link.html', '_blank');
+            });
+        });
+
+        document.querySelectorAll('.article-thumbnail').forEach(item => {
+            item.addEventListener('click', () => {
+                window.open('article-link.html', '_blank');
+            });
+        });
     </script>
 </body>
 </html>
+
