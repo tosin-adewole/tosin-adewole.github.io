@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tosin Adewole: Expert in Data Analysis, Writing, Research & More</title>
+    Tosin Adewole's Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -12,6 +12,7 @@
             padding: 0;
             background: linear-gradient(135deg, #333333, #666666);
             color: #fff;
+            padding-bottom: 20px; /* Ensure padding at bottom matches background */
         }
         header {
             background-image: url('background-pic.jpg');
@@ -49,12 +50,21 @@
             font-size: 1.5em;
             flex-grow: 1;
             text-align: left;
+            padding-left: 40px; /* Space for logo */
+        }
+        .logo {
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            height: 40px; /* Adjust size as needed */
+            width: 40px; /* Adjust size as needed */
         }
         .toggle {
             cursor: pointer;
             position: absolute;
             top: 1em;
             right: 1em;
+            padding-right: 10px; /* Small padding/margin at right of the toggle */
         }
         .toggle i {
             font-size: 24px;
@@ -84,14 +94,15 @@
         }
         .welcome-message {
             text-align: center;
-            font-size: 1.1em;
+            font-size: 1em; /* Reduced font size */
+            font-style: italic; /* Italicized font */
             color: #fff;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            animation: fadeIn 2s ease-in-out;
+            animation: fadeIn 4s ease-in-out;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -259,11 +270,13 @@
 <body>
     <header>
         <div class="header-content">
-            <h1> Tosin Adewole</h1>
+            <img src="logo.png" alt="Logo" class="logo"> <!-- Logo added -->
+            <h1>Tosin Adewole</h1>
             <div class="toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
             <div class="menu">
+                <a href="#home">Home</a>
                 <a href="#home">Home</a>
                 <a href="#about">About Me</a>
                 <a href="#projects">Projects</a>
@@ -283,10 +296,17 @@
         <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
     </section>
     <section class="expertise-section">
-        <h2>My Expertise</h2>
         <div class="expertise-container">
             <div class="expertise-box">
-                <div class="expertise-icon"><i class="fas fa-chart-bar"></i></div>
+                <div class="expertise-icon"><i class="fas fa-chart-line"></i></div>
+                <div>Data Analysis</div>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-pen"></i></div>
+                <div>Writing</div>
+            </div>
+            <div class="expertise-box">
+                div class="expertise-icon"><i class="fas fa-chart-bar"></i></div>
                 <div>Data Analysis</div>
             </div>
             <div class="expertise-box">
@@ -364,23 +384,22 @@
         <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
         <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
-
     <script>
         function toggleMenu() {
             const menu = document.querySelector('.menu');
-            const toggle = document.querySelector('.toggle i');
-            if (menu.style.display === 'block') {
-                menu.style.display = 'none';
-                toggle.classList.remove('fa-times');
-                toggle.classList.add('fa-bars');
-            } else {
-                menu.style.display = 'block';
-                toggle.classList.remove('fa-bars');
-                toggle.classList.add('fa-times');
-            }
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
 
-        document.querySelectorAll('.project-thumbnail').forEach(item => {
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const menu = document.querySelector('.menu');
+            const toggle = document.querySelector('.toggle');
+            if (!toggle.contains(event.target) && !menu.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
+
+document.querySelectorAll('.project-thumbnail').forEach(item => {
             item.addEventListener('click', () => {
                 window.open('project-link.html', '_blank');
             });
@@ -390,7 +409,7 @@
             item.addEventListener('click', () => {
                 window.open('article-link.html', '_blank');
             });
-        });
+        }););
     </script>
 </body>
 </html>
