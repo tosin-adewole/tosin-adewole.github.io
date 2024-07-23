@@ -12,7 +12,7 @@
             padding: 0;
             background: linear-gradient(135deg, #333333, #666666);
             color: #fff;
-            padding-bottom: 2em; /* Added to ensure the bottom padding matches the background */
+            padding-bottom: 20px; /* Ensure padding at bottom matches background */
         }
         header {
             background-image: url('background-pic.jpg');
@@ -50,15 +50,21 @@
             font-size: 1.5em;
             flex-grow: 1;
             text-align: left;
+            padding-left: 40px; /* Space for logo */
         }
         .logo {
-            margin-right: 0.5em;
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            height: 40px; /* Adjust size as needed */
+            width: 40px; /* Adjust size as needed */
         }
         .toggle {
             cursor: pointer;
             position: absolute;
             top: 1em;
             right: 1em;
+            padding-right: 10px; /* Small padding/margin at right of the toggle */
         }
         .toggle i {
             font-size: 24px;
@@ -88,7 +94,8 @@
         }
         .welcome-message {
             text-align: center;
-            font-size: 1.1em;
+            font-size: 1em; /* Reduced font size */
+            font-style: italic; /* Italicized font */
             color: #fff;
             position: absolute;
             top: 50%;
@@ -263,119 +270,89 @@
 <body>
     <header>
         <div class="header-content">
-            <img src="logo.png" alt="Logo" class="logo">
+            <img src="logo.png" alt="Logo" class="logo"> <!-- Logo added -->
             <h1>Tosin Adewole</h1>
             <div class="toggle" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
             <div class="menu">
                 <a href="#home">Home</a>
-                <a href="#about">About Me</a>
+                <a href="#about">About</a>
                 <a href="#projects">Projects</a>
-                <a href="#articles">Articles</a>
                 <a href="#contact">Contact</a>
             </div>
         </div>
         <div class="welcome-message">
-            <p>...where data meets creativity. Let's craft compelling stories together!</p>
+            Welcome to my personal website!
         </div>
     </header>
-    <section id="home">
-        <img src="profile-pic.jpg" alt="Tosin Adewole" class="profile-pic">
-    </section>
-    <section id="about">
+    <img src="profile-pic.jpg" alt="Profile Picture" class="profile-pic">
+    <section>
         <h2>About Me</h2>
-        <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
+        <p>My name is Tosin Adewole. I am a Nigerian law professor with extensive experience teaching in multiple universities, specializing in contract law...</p>
     </section>
-    <section id="expertise">
-        <h2>My Expertise</h2>
-        <div class="expertise-section">
-            <div class="expertise-container">
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-chart-line"></i></div>
-                    <p>Data Analysis</p>
-                </div>
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-pen-nib"></i></div>
-                    <p>Writing</p>
-                </div>
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-search"></i></div>
-                    <p>Research</p>
-                </div>
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-paint-brush"></i></div>
-                    <p>Graphics Design</p>
-                </div>
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-users"></i></div>
-                    <p>CRM</p>
-                </div>
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-bullhorn"></i></div>
-                    <p>Lead Generation</p>
-                </div>
+    <section class="expertise-section">
+        <div class="expertise-container">
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-chart-line"></i></div>
+                <div>Data Analysis</div>
             </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-pen"></i></div>
+                <div>Writing</div>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-search"></i></div>
+                <div>Research</div>
+            </div>
+            <div class="expertise-box">
+                <div class="expertise-icon"><i class="fas fa-code"></i></div>
+                <div>Web Development</div>
+            </div>
+            <!-- Additional expertise boxes can be added here -->
         </div>
     </section>
     <section id="projects">
         <h2>Projects</h2>
         <div class="project-thumbnail">
-            <p class="project-title">Project 1</p>
+            <span class="project-title">Project 1</span>
         </div>
         <div class="project-thumbnail">
-            <p class="project-title">Project 2</p>
+            <span class="project-title">Project 2</span>
         </div>
-        <div class="project-thumbnail">
-            <p class="project-title">Project 3</p>
-        </div>
-        <div class="project-thumbnail">
-            <p class="project-title">Project 4</p>
-        </div>
-        <div class="project-thumbnail">
-            <p class="project-title">Project 5</p>
-        </div>
-    </section>
-    <section id="articles">
-        <h2>Articles</h2>
-        <p>Coming soon...</p>
+        <!-- Additional project thumbnails can be added here -->
     </section>
     <section id="contact" class="get-in-touch">
-        <h2>Get in Touch</h2>
-        <form action="https://formspree.io/f/mnnajnvd" method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="_replyto" placeholder="Email" required>
-            <textarea name="message" placeholder="Kindly leave a message" required></textarea>
-            <button type="submit">Send Message</button>
+        <h2>Contact</h2>
+        <form>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" required></textarea>
+            <button type="submit">Send</button>
         </form>
-        <div class="contact-padding"></div>
-    </section>
-    <section id="resume">
-        <h2>VResume</h2>
-        <a href="resume.pdf" class="resume-button">Download My Resume</a>
     </section>
     <footer>
-        <div class="social-icons">
-            <ul>
-                <li><a href="https://www.facebook.com/your-profile" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="https://www.twitter.com/your-profile" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/your-profile" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-            </ul>
-        </div>
         <div class="contact-padding">
-            <p>Contact me at <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
-            <p class="compact-footer">&copy; 2024 Tosin Adewole</p>
+            <ul class="social-icons">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i class="fab fa-github"></i></a></li>
+            </ul>
+            <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a>
+            <p class="compact-footer">&copy; 2024 Tosin Adewole. All rights reserved.</p>
         </div>
     </footer>
     <script>
         function toggleMenu() {
-            var menu = document.querySelector('.menu');
+            const menu = document.querySelector('.menu');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
+
+        // Close menu when clicking outside
         document.addEventListener('click', function(event) {
-            var menu = document.querySelector('.menu');
-            var toggle = document.querySelector('.toggle');
+            const menu = document.querySelector('.menu');
+            const toggle = document.querySelector('.toggle');
             if (!toggle.contains(event.target) && !menu.contains(event.target)) {
                 menu.style.display = 'none';
             }
@@ -383,5 +360,3 @@
     </script>
 </body>
 </html>
-
-
