@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tosin Adewole: Expert in Data Analysis, Writing, Research & More</title>
+    <title>Tosin Adewole's Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
@@ -51,7 +51,8 @@
             text-align: left;
         }
         .logo {
-            width: 50px; /* Adjusted to small part */
+            width: 50px;
+            margin-left: 10px;
             margin-right: 10px;
         }
         .toggle {
@@ -59,6 +60,7 @@
             position: absolute;
             top: 1em;
             right: 1em;
+            margin-right: 10px;
         }
         .toggle i {
             font-size: 24px;
@@ -72,7 +74,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             width: 200px;
             border: 1px solid #888;
-            z-index: 2; /* Ensuring it covers welcome message */
+            z-index: 2;
         }
         .menu a {
             display: block;
@@ -96,7 +98,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
-            animation: fadeIn 2s ease-in-out;
+            animation: fadeIn 4s ease-in-out;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -156,37 +158,30 @@
         .profile-pic:hover {
             transform: rotateY(180deg);
         }
-        .expertise-section {
-            overflow: hidden;
-            padding: 1em;
-        }
         .expertise-container {
-            display: flex;
-            animation: fadeExpertise 15s linear infinite; /* Adjusted to fading animation */
-        }
-        @keyframes fadeExpertise {
-            0%, 100% { opacity: 0; }
-            50% { opacity: 1; }
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+            perspective: 1000px;
         }
         .expertise-box {
-            background: #333;
-            color: #fff;
-            border-radius: 5px;
-            margin-right: 1em;
-            padding: 1em;
-            width: 150px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-            height: 100px; /* Reduced height for compact look */
-            flex-shrink: 0;
-            transition: transform 0.5s;
-            border: 2px solid #fff; /* Thick outline */
+            position: absolute;
+            width: 100%;
+            padding: 20px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 1s, opacity 1s;
         }
-        .expertise-box:hover {
-            transform: scale(1.1);
+        .expertise-box.hide {
+            opacity: 0;
+            transform: rotateY(90deg);
         }
-        .expertise-icon {
-            margin-bottom: 0.5em;
+        .expertise-box.show {
+            opacity: 1;
+            transform: rotateY(0);
         }
         .project-thumbnail {
             width: 100%;
@@ -288,34 +283,14 @@
         <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
     </section>
     <section id="expertise">
-        <h2>My Expertise</h2>
-        <div class="expertise-section">
-            <div class="expertise-container">
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-chart-line"></i></div>
-                    <p>Data Analysis</p>
-                </div>
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-pen-nib"></i></div>
-                    <p>Writing</p>
-                </div>
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-search"></i></div>
-                    <p>Research</p>
-                </div>
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-paint-brush"></i></div>
-                    <p>Graphics Design</p>
-                </div>
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-users"></i></div>
-                    <p>CRM</p>
-                </div>
-                <div class="expertise-box">
-                    <div class="expertise-icon"><i class="fas fa-bullhorn"></i></div>
-                    <p>Lead Generation</p>
-                </div>
-            </div>
+        <h2>Expertise</h2>
+        <div class="expertise-container">
+            <div class="expertise-box" id="expertise1">Data Analysis</div>
+            <div class="expertise-box hide" id="expertise2">Writing</div>
+            <div class="expertise-box hide" id="expertise3">Research</div>
+            <div class="expertise-box hide" id="expertise4">Graphic Design</div>
+            <div class="expertise-box hide" id="expertise5">CRM</div>
+            <div class="expertise-box hide" id="expertise6">Lead Generation</div>
         </div>
     </section>
     <section id="projects">
@@ -338,48 +313,69 @@
     </section>
     <section id="articles">
         <h2>Articles</h2>
-        <p>Coming soon...</p>
+        <ul>
+            <li><a href="#">Article 1</a></li>
+            <li><a href="#">Article 2</a></li>
+            <li><a href="#">Article 3</a></li>
+        </ul>
     </section>
     <section id="contact" class="get-in-touch">
         <h2>Get in Touch</h2>
         <form action="https://formspree.io/f/mnnajnvd" method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="_replyto" placeholder="Email" required>
-            <textarea name="message" placeholder="Kindly leave a message" required></textarea>
-            <button type="submit">Send Message</button>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="_replyto" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
         </form>
-        <div class="contact-padding"></div>
     </section>
     <section id="resume">
         <h2>Resume</h2>
-        <a href="resume.pdf" class="resume-button">Download My Resume</a>
+        <a href="resume.pdf" class="resume-button">View Resume</a>
     </section>
     <footer>
-        <div class="social-icons">
-            <ul>
-                <li><a href="https://www.facebook.com/your-profile" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="https://www.twitter.com/your-profile" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/your-profile" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/your-profile" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-            </ul>
+        <div class="contact">
+            <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
         </div>
-        <div class="contact-padding">
-            <p>Contact me at <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
-            <p class="compact-footer">&copy; 2024 Tosin Adewole</p>
-        </div>
+        <ul class="social-icons">
+            <li><a href="https://www.facebook.com/tosin-adewole" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fab fa-x-twitter"></i></a></li>
+            <li><a href="https://www.instagram.com/techblazer001" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        </ul>
+        <p class="compact-footer">&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
     <script>
         function toggleMenu() {
-            var menu = document.querySelector('.menu');
+            const menu = document.querySelector('.menu');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
+
         document.addEventListener('click', function(event) {
-            var menu = document.querySelector('.menu');
-            var toggle = document.querySelector('.toggle');
+            const menu = document.querySelector('.menu');
+            const toggle = document.querySelector('.toggle');
             if (!toggle.contains(event.target) && !menu.contains(event.target)) {
                 menu.style.display = 'none';
             }
         });
+
+        function showExpertise(index) {
+            const boxes = document.querySelectorAll('.expertise-box');
+            boxes.forEach((box, i) => {
+                box.classList.add('hide');
+                box.classList.remove('show');
+                if (i === index) {
+                    box.classList.add('show');
+                    box.classList.remove('hide');
+                }
+            });
+        }
+
+        let currentExpertise = 0;
+        showExpertise(currentExpertise);
+        setInterval(() => {
+            currentExpertise = (currentExpertise + 1) % 6;
+            showExpertise(currentExpertise);
+        }, 2000);
     </script>
 </body>
 </html>
