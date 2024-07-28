@@ -3,387 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tosin Adewole's Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Tosin Adewole</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #333333, #666666);
-            color: #fff;
-        }
-        header {
-            background-image: url('background-pic.jpg');
+            font-family: Arial, sans-serif;
+            background: url('background-pic.jpg') no-repeat center center fixed;
             background-size: cover;
-            background-position: center;
-            color: #fff;
-            height: 500px;
-            position: relative;
         }
-        header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 0;
-        }
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1em;
+        .sticky-header {
             position: sticky;
             top: 0;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 3;
-            width: 100%;
-        }
-        .header-content {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            width: 100%;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            z-index: 1000;
         }
-        header h1 {
-            margin: 0;
-            font-size: 1.5em;
-            flex-grow: 1;
-            text-align: left;
-        }
-        .logo {
-            width: 50px;
+        .sticky-header img {
+            height: 40px;
             margin-left: 10px;
-            margin-right: 10px;
         }
-        .toggle {
-            cursor: pointer;
-            margin-right: 10px;
+        .sticky-header .name-toggle {
+            display: flex;
+            align-items: center;
         }
-        .toggle i {
+        .sticky-header .name-toggle .name {
+            margin: 0 10px;
             font-size: 24px;
         }
-        .menu {
-            display: none;
-            background: #000;
-            position: absolute;
-            top: 3em;
-            right: 1em;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            width: 200px;
-            border: 1px solid #888;
-            z-index: 2;
+        .sticky-header .name-toggle .toggle {
+            margin-right: 10px;
         }
-        .menu a {
-            display: block;
-            padding: 1em;
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px solid #888;
-        }
-        .menu a:last-child {
-            border-bottom: none;
-        }
-        .menu a:hover {
-            background: #444;
+        header {
+            text-align: center;
+            padding: 20px 0;
         }
         .welcome-message {
-            text-align: center;
-            font-size: 1.1em;
-            color: #fff;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-style: italic;
+            position: relative;
             z-index: 1;
-            animation: fadeIn 4s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        section {
-            padding: 2em;
-            max-width: 800px;
-            margin: 2em auto;
-            background: #222;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        h2 {
-            color: #fff;
-        }
-        p {
-            line-height: 1.6;
-        }
-        footer {
-            background: #000;
-            color: #fff;
             text-align: center;
-            padding: 1em 0;
-            width: 100%;
+            margin-top: -50px;
         }
-        .contact a {
-            color: #fff;
-            text-decoration: none;
+        .content {
+            padding: 20px;
         }
-        .social-icons {
-            list-style: none;
-            padding: 0;
-            text-align: center;
+        .about-me,
+        .expertise,
+        .projects,
+        .articles,
+        .get-in-touch,
+        .resume,
+        .socials {
+            margin-bottom: 20px;
         }
-        .social-icons li {
-            display: inline;
-            margin: 0 10px;
-        }
-        .social-icons a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px;
-        }
-        .profile-pic {
-            display: block;
-            margin: -200px auto 0 auto;
+        .expertise .box {
+            height: 150px;
             width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            position: relative;
-            z-index: 1;
-            border: 5px solid #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: transform 0.5s;
-        }
-        .profile-pic:hover {
-            transform: rotateY(180deg);
-        }
-        .expertise-container {
-            position: relative;
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px 0;
-            perspective: 1000px;
-        }
-        .expertise-box {
-            position: absolute;
-            width: 100%;
-            padding: 30px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #444, #888);
-            border: 4px double #fff;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            transition: transform 1s, opacity 1s;
-            font-size: 1.2em;
-        }
-        .expertise-box::after {
-            content: '\f0c8'; /* FontAwesome icon */
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            right: 20px;
-            top: 20px;
-        }
-        .expertise-box.hide {
-            opacity: 0;
-            transform: rotateY(90deg);
-        }
-        .expertise-box.show {
-            opacity: 1;
-            transform: rotateY(0);
-        }
-        .project-thumbnail {
-            width: 100%;
-            height: 200px;
-            background: #444;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 1em;
-            transition: background 0.3s;
-            cursor: pointer;
-        }
-        .project-thumbnail:hover {
-            background: rgba(0, 0, 0, 0.5);
-        }
-        .project-title {
-            color: #fff;
+            background-color: #555;
+            border: 2px solid #000;
             display: none;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            transition: opacity 0.5s ease-in-out;
+            position: relative;
         }
-        .project-thumbnail:hover .project-title {
+        .expertise .box img {
+            height: 50px;
+            width: 50px;
+        }
+        .expertise .box.active {
             display: block;
+            opacity: 1;
+        }
+        .projects .project,
+        .articles .article,
+        .socials .social {
+            background-color: #444;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin: 10px 0;
         }
         .get-in-touch form {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
         }
-        .get-in-touch form input,
-        .get-in-touch form textarea {
-            width: calc(100% - 20px);
-            padding: 0.5em;
-            margin: 0.5em 0;
-            border: 2px solid #fff;
-            border-radius: 5px;
-            background: #333;
-            color: #fff;
+        .get-in-touch input,
+        .get-in-touch textarea {
+            margin: 5px 0;
+            padding: 10px;
         }
-        .get-in-touch form button {
-            padding: 0.5em 1em;
-            border: 2px solid #fff;
-            border-radius: 5px;
-            background: #000;
-            color: #fff;
-            cursor: pointer;
-            transition: background 0.3s;
-            align-self: flex-start;
-        }
-        .get-in-touch form button:hover {
-            background: #444;
-        }
-        .resume-button {
-            display: inline-block;
-            padding: 0.5em 1em;
-            background: #000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-            border: 2px solid #fff;
-            transition: background 0.3s;
-            margin-top: 1em;
-            align-self: center;
-        }
-        .resume-button:hover {
-            background: #444;
-        }
-        .compact-footer {
-            font-size: 0.8em;
-        }
-        .contact-padding {
-            padding: 2em;
+        .get-in-touch button {
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
         }
     </style>
 </head>
 <body>
+    <div class="sticky-header">
+        <img src="logo.png" alt="Logo">
+        <div class="name-toggle">
+            <div class="name">Tosin Adewole</div>
+            <div class="toggle">☰</div>
+        </div>
+    </div>
     <header>
-        <div class="header-top">
-            <div class="header-content">
-                <img src="logo.png" alt="Logo" class="logo">
-                <h1>Tosin Adewole</h1>
-                <div class="toggle" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <div class="menu">
-                    <a href="#home">Home</a>
-                    <a href="#about">About Me</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#articles">Articles</a>
-                    <a href="#contact">Contact</a>
-                </div>
-            </div>
-        </div>
-        <div class="welcome-message">
-            <p>...where data meets creativity. Let's craft compelling stories together!</p>
-        </div>
+        <h1>Tosin Adewole</h1>
     </header>
-    <section id="home">
-        <img src="profile-pic.jpg" alt="Tosin Adewole" class="profile-pic">
-    </section>
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
-    </section>
-    <section id="expertise">
-        <h2>Expertise</h2>
-        <div class="expertise-container">
-            <div class="expertise-box show">Data Analysis</div>
-            <div class="expertise-box hide">Writing</div>
-            <div class="expertise-box hide">Research</div>
-            <div class="expertise-box hide">Graphic Design</div>
-            <div class="expertise-box hide">CRM</div>
-            <div class="expertise-box hide">Lead Generation</div>
-        </div>
-    </section>
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-thumbnail">
-            <span class="project-title">Project 1</span>
-        </div>
-        <div class="project-thumbnail">
-            <span class="project-title">Project 2</span>
-        </div>
-        <div class="project-thumbnail">
-            <span class="project-title">Project 3</span>
-        </div>
-        <div class="project-thumbnail">
-            <span class="project-title">Project 4</span>
-        </div>
-        <div class="project-thumbnail">
-            <span class="project-title">Project 5</span>
-        </div>
-    </section>
-    <section id="articles">
-        <h2>Articles</h2>
-        <ul>
-            <li><a href="article1.html">Article 1</a></li>
-            <li><a href="article2.html">Article 2</a></li>
-            <li><a href="article3.html">Article 3</a></li>
-        </ul>
-    </section>
-    <section id="contact">
-        <h2>Get in Touch</h2>
-        <div class="get-in-touch">
+    <div class="welcome-message">...where data meets creativity. Let's craft compelling stories together!</div>
+    <div class="content">
+        <section class="about-me">
+            <h2>About Me</h2>
+            <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
+        </section>
+        <section class="expertise">
+            <h2>Expertise</h2>
+            <div class="box active">
+                <img src="data-analysis-icon.png" alt="Data Analysis">
+                <p>Data Analysis</p>
+            </div>
+            <div class="box">
+                <img src="writing-icon.png" alt="Writing">
+                <p>Writing</p>
+            </div>
+            <div class="box">
+                <img src="research-icon.png" alt="Research">
+                <p>Research</p>
+            </div>
+            <div class="box">
+                <img src="graphics-design-icon.png" alt="Graphics Design">
+                <p>Graphics Design</p>
+            </div>
+            <div class="box">
+                <img src="crm-icon.png" alt="CRM">
+                <p>CRM</p>
+            </div>
+            <div class="box">
+                <img src="lead-generation-icon.png" alt="Lead Generation">
+                <p>Lead Generation</p>
+            </div>
+        </section>
+        <section class="projects">
+            <h2>Projects</h2>
+            <div class="project">Project 1</div>
+            <div class="project">Project 2</div>
+            <div class="project">Project 3</div>
+            <div class="project">Project 4</div>
+            <div class="project">Project 5</div>
+        </section>
+        <section class="articles">
+            <h2>Articles</h2>
+            <div class="article">Article 1</div>
+            <div class="article">Article 2</div>
+            <div class="article">Article 3</div>
+        </section>
+        <section class="get-in-touch">
+            <h2>Get in Touch</h2>
             <form action="https://formspree.io/f/mnnajnvd" method="POST">
                 <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="_replyto" placeholder="Your Email" required>
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
                 <button type="submit">Send</button>
             </form>
-            <a href="resume.pdf" class="resume-button">View Resume</a>
-        </div>
-    </section>
-    <footer class="compact-footer">
-        <p>Contact me: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
-        <ul class="social-icons">
-            <li><a href="https://www.facebook.com/tosin-adewole" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://www.instagram.com/techblazer001" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-        </ul>
-    </footer>
+        </section>
+        <section class="resume">
+            <h2>Resume</h2>
+            <a href="resume.pdf" target="_blank">View My Resume</a>
+        </section>
+        <section class="socials">
+            <h2>Social Media</h2>
+            <a href="https://www.facebook.com/tosin-adewole" class="social">Facebook</a>
+            <a href="https://x.com/teeblaze" class="social">X</a>
+            <a href="https://www.instagram.com/techblazer001" class="social">Instagram</a>
+            <a href="https://www.linkedin.com/in/tosin-adewole" class="social">LinkedIn</a>
+        </section>
+    </div>
     <script>
-        function toggleMenu() {
-            const menu = document.querySelector('.menu');
-            const toggle = document.querySelector('.toggle');
-            if (menu.style.display === 'block') {
-                menu.style.display = 'none';
-                toggle.classList.remove('active');
-            } else {
-                menu.style.display = 'block';
-                toggle.classList.add('active');
-            }
-        }
-        window.onclick = function(event) {
-            if (!event.target.matches('.toggle') && !event.target.matches('.toggle i')) {
-                const menu = document.querySelector('.menu');
-                if (menu.style.display === 'block') {
-                    menu.style.display = 'none';
-                    document.querySelector('.toggle').classList.remove('active');
-                }
-            }
-        }
-        window.onload = function() {
-            const boxes = document.querySelectorAll('.expertise-box');
-            let currentIndex = 0;
+        document.addEventListener('DOMContentLoaded', () => {
+            const boxes = document.querySelectorAll('.expertise .box');
+            let index = 0;
             setInterval(() => {
-                boxes[currentIndex].classList.remove('show');
-                boxes[currentIndex].classList.add('hide');
-                currentIndex = (currentIndex + 1) % boxes.length;
-                boxes[currentIndex].classList.remove('hide');
-                boxes[currentIndex].classList.add('show');
+                boxes[index].classList.remove('active');
+                index = (index + 1) % boxes.length;
+                boxes[index].classList.add('active');
             }, 3000);
-        }
+        });
     </script>
 </body>
 </html>
