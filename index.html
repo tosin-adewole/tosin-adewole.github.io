@@ -37,7 +37,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1em;
-            position: fixed;
+            position: sticky;
             top: 0;
             background: rgba(0, 0, 0, 0.7);
             z-index: 3;
@@ -91,6 +91,22 @@
         .menu a:hover {
             background: #444;
         }
+@keyframes toggleOpen {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+@keyframes toggleClose {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
         .welcome-message {
             text-align: center;
             font-size: 1.1em;
@@ -107,11 +123,11 @@
             to { opacity: 1; }
         }
         section {
-    background: transparent; /* Changed from #222 to transparent */
-    padding: 2em;
-    max-width: 800px;
-    margin: 2em auto;
-    box-shadow: none; /* Removed box-shadow to avoid border-like effect */
+            padding: 2em;
+            max-width: 800px;
+            margin: 2em auto;
+            background: #222;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         h2 {
             color: #fff;
@@ -161,39 +177,49 @@
             transform: rotateY(180deg);
         }
         .expertise-container {
-            position: relative;
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px 0;
-            perspective: 1000px;
-        }
-        .expertise-box {
-            position: absolute;
-            width: 100%;
-            padding: 30px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, #444, #888);
-            border: 4px double #fff;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            transition: transform 1s, opacity 1s;
-            font-size: 1.2em;
-        }
-        .expertise-box::after {
-            content: '\f0c8'; /* FontAwesome icon */
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            right: 20px;
-            top: 20px;
-        }
-        .expertise-box.hide {
-            opacity: 0;
-            transform: rotateY(90deg);
-        }
-        .expertise-box.show {
-            opacity: 1;
-            transform: rotateY(0);
-        }
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+  perspective: 1000px;
+  text-align: center;
+}
+
+.expertise-box {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 150px;
+  width: 200px;
+  padding: 30px;
+  margin: 0 auto;
+  background: #444;
+  border: 2px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 1s, opacity 1s;
+  font-size: 1.4em;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expertise-box i {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+.expertise-box.hide {
+  opacity: 0;
+  transform: rotateY(90deg);
+}
+
+.expertise-box.show {
+  opacity: 1;
+  transform: rotateY(0);
+}
         .project-thumbnail {
             width: 100%;
             height: 200px;
@@ -296,16 +322,16 @@
         <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
     </section>
     <section id="expertise">
-        <h2>Expertise</h2>
-        <div class="expertise-container">
-            <div class="expertise-box show">Data Analysis</div>
-            <div class="expertise-box hide">Writing</div>
-            <div class="expertise-box hide">Research</div>
-            <div class="expertise-box hide">Graphic Design</div>
-            <div class="expertise-box hide">CRM</div>
-            <div class="expertise-box hide">Lead Generation</div>
-        </div>
-    </section>
+  <h2>Expertise</h2>
+  <div class="expertise-container">
+    <div class="expertise-box show" id="expertise-box-1"><i class="fas fa-chart-line"></i> Data Analysis</div>
+    <div class="expertise-box hide" id="expertise-box-2"><i class="fas fa-pen"></i> Writing</div>
+    <div class="expertise-box hide" id="expertise-box-3"><i class="fas fa-search"></i> Research</div>
+    <div class="expertise-box hide" id="expertise-box-4"><i class="fas fa-paint-brush"></i> Graphics Design</div>
+    <div class="expertise-box hide" id="expertise-box-5"><i class="fas fa-users"></i> CRM</div>
+    <div class="expertise-box hide" id="expertise-box-6"><i class="fas fa-bullseye"></i> Lead Generation</div>
+  </div>
+</section>
     <section id="projects">
         <h2>Projects</h2>
         <div class="project-thumbnail">
@@ -341,50 +367,67 @@
                 <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit">Send</button>
             </form>
-            <a href="resume.pdf" class="resume-button">View Resume</a>
-        </div>
+            <div class="contact-padding"></div>
+    </section>
+    <section id="resume">
+        <h2>VResume</h2>
+        <a href="resume.pdf" class="resume-button">View My Resume</a>
     </section>
     <footer class="compact-footer">
-        <p>Contact me: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
+        <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
         <ul class="social-icons">
             <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
             <li><a href="https://x.com/teeblaze" target="_blank"><i class="fab fa-twitterx"></i></a></li>
             <li><a href="https://www.instagram.com/techblazer001" target="_blank"><i class="fab fa-instagram"></i></a></li>
             <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
+        <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
     <script>
-        function toggleMenu() {
-            const menu = document.querySelector('.menu');
-            const toggle = document.querySelector('.toggle');
-            if (menu.style.display === 'block') {
-                menu.style.display = 'none';
-                toggle.classList.remove('active');
-            } else {
-                menu.style.display = 'block';
-                toggle.classList.add('active');
-            }
-        }
-        window.onclick = function(event) {
-            if (!event.target.matches('.toggle') && !event.target.matches('.toggle i')) {
-                const menu = document.querySelector('.menu');
-                if (menu.style.display === 'block') {
-                    menu.style.display = 'none';
-                    document.querySelector('.toggle').classList.remove('active');
-                }
-            }
-        }
-        window.onload = function() {
-            const boxes = document.querySelectorAll('.expertise-box');
-            let currentIndex = 0;
-            setInterval(() => {
-                boxes[currentIndex].classList.remove('show');
-                boxes[currentIndex].classList.add('hide');
-                currentIndex = (currentIndex + 1) % boxes.length;
-                boxes[currentIndex].classList.remove('hide');
-                boxes[currentIndex].classList.add('show');
-            }, 3000);
-        }
-    </script>
+let expertiseIndex = 0;
+const expertiseBoxes = document.querySelectorAll('.expertise-box');
+const toggle = document.querySelector('.toggle');
+const menu = document.querySelector('.menu');
+
+function cycleExpertise() {
+  expertiseBoxes.forEach((box, index) => {
+    box.classList.add('hide');
+    box.classList.remove('show');
+  });
+  expertiseIndex = (expertiseIndex + 1) % expertiseBoxes.length;
+  expertiseBoxes[expertiseIndex].classList.add('show');
+  expertiseBoxes[expertiseIndex].classList.remove('hide');
+}
+
+setInterval(cycleExpertise, 3000);
+
+function toggleMenu() {
+  menu.style.display === 'block' ? closeMenu() : openMenu();
+}
+
+function openMenu() {
+  menu.style.display = 'block';
+  toggle.classList.add('active');
+  toggle.innerHTML = '<i class="fas fa-times"></i>';
+  toggle.style.animation = 'toggleOpen 0.5s ease-in-out';
+}
+
+function closeMenu() {
+  menu.style.display = 'none';
+  toggle.classList.remove('active');
+  toggle.innerHTML = '<i class="fas fa-bars"></i>';
+  toggle.style.animation = 'toggleClose 0.5s ease-in-out';
+}
+
+window.onclick = function(event) {
+  if (!event.target.matches('.toggle') && !event.target.matches('.toggle i')) {
+    if (menu.style.display === 'block') {
+      closeMenu();
+    }
+  }
+}
+
+toggle.addEventListener('click', toggleMenu);
+</script>
 </body>
 </html>
