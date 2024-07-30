@@ -37,7 +37,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1em;
-            position: sticky;
+            position: fixed;
             top: 0;
             background: rgba(0, 0, 0, 0.7);
             z-index: 3;
@@ -107,11 +107,11 @@
             to { opacity: 1; }
         }
         section {
-            padding: 2em;
-            max-width: 800px;
-            margin: 2em auto;
-            background: #222;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: transparent; /* Changed from #222 to transparent */
+    padding: 2em;
+    max-width: 800px;
+    margin: 2em auto;
+    box-shadow: none; /* Removed box-shadow to avoid border-like effect */
         }
         h2 {
             color: #fff;
