@@ -10,7 +10,7 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #333; /* Changed to a dark gray background */
+    background: linear-gradient(to bottom, #333, #000);  
     color: #fff;
 }
         header {
@@ -37,11 +37,11 @@
             justify-content: space-between;
             align-items: center;
             padding: 1em;
-            position: sticky;
-            top: 0;
+            position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
             background: rgba(0, 0, 0, 0.7);
-            z-index: 3;
-            width: 100%;
         }
         .header-content {
             display: flex;
@@ -76,7 +76,8 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
             width: 200px;
             border: 1px solid #888;
-            z-index: 2;
+            transition: display 0.5s ease-in-out;    
+z-index: 2;
         }
         .menu a {
             display: block;
@@ -126,7 +127,7 @@
             padding: 2em;
             max-width: 800px;
             margin: 2em auto;
-            background: #222;
+            background: transparent;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         h2 {
@@ -160,7 +161,11 @@
             text-decoration: none;
             font-size: 20px;
         }
-        .profile-pic {
+        .social-icons li:nth-child(2) a i {
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f099'; /* Twitter icon */
+}
+.profile-pic {
             display: block;
             margin: -200px auto 0 auto;
             width: 200px;
@@ -190,15 +195,15 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  height: 150px;
-  width: 200px;
+height: 100px;
+  width: 150px;
+  font-size: 1em;
   padding: 30px;
   margin: 0 auto;
   background: #444;
   border: 2px solid #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   transition: transform 1s, opacity 1s;
-  font-size: 1.4em;
   font-family: 'Arial', sans-serif;
   color: #fff;
   display: flex;
@@ -230,6 +235,7 @@
             margin-bottom: 1em;
             transition: background 0.3s;
             cursor: pointer;
+padding: 10px;
         }
         .project-thumbnail:hover {
             background: rgba(0, 0, 0, 0.5);
@@ -288,7 +294,7 @@
             font-size: 0.8em;
         }
         .contact-padding {
-            padding: 2em;
+            padding: 20px;
         }
     </style>
 </head>
@@ -377,7 +383,7 @@
         <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
         <ul class="social-icons">
             <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fab fa-twitterx"></i></a></li>
+            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://www.instagram.com/techblazer001" target="_blank"><i class="fab fa-instagram"></i></a></li>
             <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
