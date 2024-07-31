@@ -7,41 +7,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #333333, #666666);
-            color: #fff;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #10131A);  
+    color: #fff;
+}
         header {
-            background-image: url('background-pic.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            height: 500px;
-            position: relative;
-        }
+    background-image: url('background-pic.jpg');
+    background-size: 100%;
+    background-position: center;
+    color: #fff;
+    height: 500px;
+    position: relative;
+    padding: 2em 0; 
+}
         header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 0;
-        }
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 10, 71, 0.5);
+    z-index: 0;
+}
         .header-top {
-            display: flex;
+            display: block;
             justify-content: space-between;
             align-items: center;
             padding: 1em;
             position: fixed;
-            top: 0;
-            background: #444;
-            z-index: 3;
-            width: 100%;
-        }
+  top: 0;
+  width: 100%;
+  z-index: 3;
+            background: rgba(16, 19, 26, 0.7);
+}
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -57,39 +58,77 @@
         .logo {
             width: 50px;
             margin-left: 10px;
-            margin-right: 10px;
+            margin-right: 8px;
         }
         .toggle {
-            cursor: pointer;
-            margin-right: 10px;
-        }
+  cursor: pointer;
+  margin-right: 10px;
+  position: absolute; 
+  right: 1em;
+}
         .toggle i {
-            font-size: 24px;
-        }
-        .menu {
-            display: none;
-            background: #000;
-            position: absolute;
-            top: 3em;
-            right: 1em;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            width: 200px;
-            border: 1px solid #888;
-            z-index: 2;
-        }
-        .menu a {
-            display: block;
-            padding: 1em;
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px solid #888;
-        }
-        .menu a:last-child {
-            border-bottom: none;
-        }
-        .menu a:hover {
-            background: #444;
-        }
+  font-size: 24px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.toggle.active i {
+  transform: rotate(45deg);
+}
+
+.menu {
+  display: none;
+  background: #10131A;
+  position: absolute;
+  top: 3em;
+  right: 1em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  width: 200px;
+  border: 1px solid #888;
+  z-index: 2;
+  transition: opacity 0.5s ease-in-out;
+}
+.toggle.active + .menu {
+  display: block;
+  opacity: 1;
+}
+
+.menu a {
+  display: block;
+  padding: 1em;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #888;
+}
+
+.menu a:last-child {
+  border-bottom: none;
+}
+
+.menu a:hover {
+  background: #444;
+}
+
+@keyframes toggleOpen {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes toggleClose {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.toggle.active i {
+  animation: toggleOpen 0.5s ease-in-out;
+}
         .welcome-message {
             text-align: center;
             font-size: 1.1em;
@@ -106,20 +145,27 @@
             to { opacity: 1; }
         }
         section {
-            padding: 0.5em 0;
+            padding: 2em;
             max-width: 800px;
-            margin: 1em auto;
-            background: #222;
+            margin: 2em auto;
+            background: transparent;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         h2 {
             color: #fff;
         }
+.section-divider {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 20px;
+    width: 80%; /* adjust the width as needed */
+    margin-left: auto;
+    margin-right: auto;
+}
         p {
             line-height: 1.6;
         }
         footer {
-            background: #000;
+            background: #10131A;
             color: #fff;
             text-align: center;
             padding: 1em 0;
@@ -143,7 +189,11 @@
             text-decoration: none;
             font-size: 20px;
         }
-        .profile-pic {
+        .social-icons li:nth-child(2) a i {
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f099'; /* Twitter icon */
+}
+.profile-pic {
             display: block;
             margin: -200px auto 0 auto;
             width: 200px;
@@ -159,53 +209,83 @@
         .profile-pic:hover {
             transform: rotateY(180deg);
         }
-        .expertise-container {
-            position: relative;
-            width: 100%;
-            margin: 0 auto;
-            padding: 20px 0;
-            perspective: 1000px;
-            text-align: center;
-        }
-        .expertise-box {
-            display: inline-block;
-            height: 150px;
-            width: 200px;
-            padding: 30px;
-            margin: 0 auto;
-            background: #444;
-            border: 2px solid #fff;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-            transition: transform 1s, opacity 1s;
-            font-size: 1.4em;
-            font-family: 'Arial', sans-serif;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .expertise-box i {
-            margin-right: 10px;
-            font-size: 1.5em;
-        }
-        .expertise-box.hide {
-            opacity: 0;
-            transform: rotateY(90deg);
-        }
-        .expertise-box.show {
-            opacity: 1;
-            transform: rotateY(0);
-        }
+       .expertise-container {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px 0;
+  perspective: 1000px;
+  text-align: center;
+}
+
+.expertise-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 150px;
+  font-size: 1em;
+  padding: 30px;
+  margin: 0 auto;
+  background: #140A47;
+  border: 2px solid #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slideInFromLeft 1s ease-in-out;
+}
+
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.expertise-box i {
+  margin-right: 10px;
+  font-size: 1.5em;
+}
+
+.expertise-box.hide {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.expertise-box.show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
         .project-thumbnail {
             width: 100%;
             height: 200px;
-            background: #444;
+            background: #C6C6D0;
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 1em;
             transition: background 0.3s;
             cursor: pointer;
+padding: 10px;
         }
         .project-thumbnail:hover {
             background: rgba(0, 0, 0, 0.5);
@@ -229,26 +309,26 @@
             margin: 0.5em 0;
             border: 2px solid #fff;
             border-radius: 5px;
-            background: #333;
+            background: #140A47;
             color: #fff;
         }
         .get-in-touch form button {
             padding: 0.5em 1em;
             border: 2px solid #fff;
             border-radius: 5px;
-            background: #000;
+            background: ##140A47;
             color: #fff;
             cursor: pointer;
             transition: background 0.3s;
             align-self: flex-start;
         }
         .get-in-touch form button:hover {
-            background: #444;
+            background: #140A47;
         }
         .resume-button {
             display: inline-block;
             padding: 0.5em 1em;
-            background: #000;
+            background: #140A47;
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
@@ -258,13 +338,13 @@
             align-self: center;
         }
         .resume-button:hover {
-            background: #444;
+            background: #140A47;
         }
         .compact-footer {
             font-size: 0.8em;
         }
         .contact-padding {
-            padding: 2em 0;
+            padding: 20px;
         }
     </style>
 </head>
@@ -275,8 +355,8 @@
                 <img src="logo.png" alt="Logo" class="logo">
                 <h1>Tosin Adewole</h1>
                 <div class="toggle" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
+  <i class="fas fa-bars"></i>
+</div>
                 <div class="menu">
                     <a href="#home">Home</a>
                     <a href="#about">About Me</a>
@@ -298,95 +378,107 @@
         <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
     </section>
     <section id="expertise">
-        <h2>Expertise</h2>
-        <div class="expertise-container">
-            <div class="expertise-box show" id="expertise-box-1"><i class="fas fa-chart-line"></i> Data Analysis</div>
-            <div class="expertise-box hide" id="expertise-box-2"><i class="fas fa-pen"></i> Writing</div>
-            <div class="expertise-box hide" id="expertise-box-3"><i class="fas fa-search"></i> Research</div>
-            <div class="expertise-box hide" id="expertise-box-4"><i class="fas fa-paint-brush"></i> Graphics Design</div>
-            <div class="expertise-box hide" id="expertise-box-5"><i class="fas fa-users"></i> CRM</div>
-            <div class="expertise-box hide" id="expertise-box-6"><i class="fas fa-bullseye"></i> Lead Generation</div>
-        </div>
-    </section>
+  <h2>Expertise</h2>
+  <div class="expertise-container">
+    <div class="expertise-box show" id="expertise-box-1"><i class="fas fa-chart-line"></i> Data Analysis</div>
+    <div class="expertise-box hide" id="expertise-box-2"><i class="fas fa-pen"></i> Writing</div>
+    <div class="expertise-box hide" id="expertise-box-3"><i class="fas fa-search"></i> Research</div>
+    <div class="expertise-box hide" id="expertise-box-4"><i class="fas fa-paint-brush"></i> Graphics Design</div>
+    <div class="expertise-box hide" id="expertise-box-5"><i class="fas fa-users"></i> CRM</div>
+    <div class="expertise-box hide" id="expertise-box-6"><i class="fas fa-bullseye"></i> Lead Generation</div>
+  </div>
+</section>
     <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-thumbnail" onclick="location.href='#';">
-            <p class="project-title">Project 1</p>
+        <h2>Selected Projects</h2>
+        <div class="project-thumbnail">
+            <span class="project-title">Project 1</span>
         </div>
-        <div class="project-thumbnail" onclick="location.href='#';">
-            <p class="project-title">Project 2</p>
+        <div class="project-thumbnail">
+            <span class="project-title">Project 2</span>
         </div>
-        <div class="project-thumbnail" onclick="location.href='#';">
-            <p class="project-title">Project 3</p>
+        <div class="project-thumbnail">
+            <span class="project-title">Project 3</span>
         </div>
-        <div class="project-thumbnail" onclick="location.href='#';">
-            <p class="project-title">Project 4</p>
+        <div class="project-thumbnail">
+            <span class="project-title">Project 4</span>
         </div>
-        <div class="project-thumbnail" onclick="location.href='#';">
-            <p class="project-title">Project 5</p>
+        <div class="project-thumbnail">
+            <span class="project-title">Project 5</span>
         </div>
     </section>
-    <section id="articles">
+    <section id="articles" class="section-divider">
         <h2>Articles</h2>
         <ul>
-            <li><a href="#">Article 1</a></li>
-            <li><a href="#">Article 2</a></li>
-            <li><a href="#">Article 3</a></li>
+            <li><a href="article1.html">Article 1</a></li>
+            <li><a href="article2.html">Article 2</a></li>
+            <li><a href="article3.html">Article 3</a></li>
         </ul>
     </section>
-    <section id="contact" class="get-in-touch">
-        <h2>Get in Touch</h2>
-        <form action="https://formspree.io/f/mnnajnvd" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-    <section id="resume">
+<section id="resume">
         <h2>Resume</h2>
-        <a href="resume.pdf" class="resume-button">View Resume</a>
+        <a href="resume.pdf" class="resume-button">View My Resume</a>
+<div class="contact-padding"></div>
+    </section>
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <div class="get-in-touch">
+            <form action="https://formspree.io/f/mnnajnvd" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="_replyto" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+<div class="contact-padding"></div>
     </section>
     <footer class="compact-footer">
-        <div class="contact-padding">
-            <h2>Contact Me</h2>
-            <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
-            <ul class="social-icons">
-                <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook"></i></a></li>
-                <li><a href="https://x.com/teeblaze" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="https://www.instagram.com/techblazer001" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/tosinadewole" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            </ul>
-        </div>
+        <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
+        <ul class="social-icons">
+            <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fa-brands" style="font-weight: 300;">&#xe61b;</i></a></li>
+            <li><a href="https://www.instagram.com/techblazer001" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+        </ul>
+        <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
-    <script>
-        function toggleMenu() {
+   <script>
+let expertiseIndex = 0;
+const expertiseBoxes = document.querySelectorAll('.expertise-box');
+const toggle = document.querySelector('.toggle');
+const menu = document.querySelector('.menu');
+
+function cycleExpertise() {
+  const currentBox = expertiseBoxes[expertiseIndex];
+  currentBox.classList.remove('show');
+  currentBox.classList.add('hide');
+
+  expertiseIndex = (expertiseIndex + 1) % expertiseBoxes.length;
+  const nextBox = expertiseBoxes[expertiseIndex];
+  nextBox.classList.remove('hide');
+  nextBox.classList.add('show');
+
+  // Remove the animation property to allow the transition to work
+  nextBox.style.animation = '';
+}
+
+setInterval(cycleExpertise, 3000);
+
+function toggleMenu() {
             var menu = document.querySelector('.menu');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
 
-        let expertiseIndex = 0;
-        const expertiseBoxes = document.querySelectorAll('.expertise-box');
+function openMenu() {
+  menu.style.display = 'block';
+  toggle.classList.add('active');
+  toggle.innerHTML = '<i class="fas fa-times"></i>';
+}
 
-        function cycleExpertise() {
-            expertiseBoxes.forEach((box, index) => {
-                box.classList.add('hide');
-                box.classList.remove('show');
-            });
-            expertiseIndex = (expertiseIndex + 1) % expertiseBoxes.length;
-            expertiseBoxes[expertiseIndex].classList.add('show');
-            expertiseBoxes[expertiseIndex].classList.remove('hide');
-        }
-
-        setInterval(cycleExpertise, 4000);
-
-        document.addEventListener('click', function (event) {
-            const isClickInside = document.querySelector('.header-content').contains(event.target);
-            if (!isClickInside) {
-                var menu = document.querySelector('.menu');
-                menu.style.display = 'none';
-            }
-        });
-    </script>
+function closeMenu() {
+  menu.style.display = 'none';
+  toggle.classList.remove('active');
+  toggle.innerHTML = '<i class="fas fa-bars"></i>';
+  }
+}
+</script>
 </body>
 </html>
