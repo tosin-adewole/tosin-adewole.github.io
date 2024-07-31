@@ -67,10 +67,16 @@
   right: 1em;
 }
         .toggle i {
-            font-size: 24px;
-        }
-        .menu {
-  display: none; /* Change from block to none */
+  font-size: 24px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.toggle.active i {
+  transform: rotate(45deg);
+}
+
+.menu {
+  display: none;
   background: #10131A;
   position: absolute;
   top: 3em;
@@ -78,22 +84,30 @@
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   width: 200px;
   border: 1px solid #888;
-  transition: display 0.5s ease-in-out;
   z-index: 2;
+  transition: opacity 0.5s ease-in-out;
 }
-        .menu a {
-            display: block;
-            padding: 1em;
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px solid #888;
-        }
-        .menu a:last-child {
-            border-bottom: none;
-        }
-        .menu a:hover {
-            background: #444;
-        }
+.toggle.active + .menu {
+  display: block;
+  opacity: 1;
+}
+
+.menu a {
+  display: block;
+  padding: 1em;
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #888;
+}
+
+.menu a:last-child {
+  border-bottom: none;
+}
+
+.menu a:hover {
+  background: #444;
+}
+
 @keyframes toggleOpen {
   0% {
     transform: rotate(0deg);
@@ -102,6 +116,7 @@
     transform: rotate(45deg);
   }
 }
+
 @keyframes toggleClose {
   0% {
     transform: rotate(45deg);
@@ -109,6 +124,10 @@
   100% {
     transform: rotate(0deg);
   }
+}
+
+.toggle.active i {
+  animation: toggleOpen 0.5s ease-in-out;
 }
         .welcome-message {
             text-align: center;
@@ -336,8 +355,8 @@ padding: 10px;
                 <img src="logo.png" alt="Logo" class="logo">
                 <h1>Tosin Adewole</h1>
                 <div class="toggle" onclick="toggleMenu()">
-                    <i class="fas fa-bars"></i>
-                </div>
+  <i class="fas fa-bars"></i>
+</div>
                 <div class="menu">
                     <a href="#home">Home</a>
                     <a href="#about">About Me</a>
@@ -455,23 +474,12 @@ function openMenu() {
   menu.style.display = 'block';
   toggle.classList.add('active');
   toggle.innerHTML = '<i class="fas fa-times"></i>';
-  toggle.style.animation = 'toggleOpen 0.5s ease-in-out';
 }
 
 function closeMenu() {
   menu.style.display = 'none';
   toggle.classList.remove('active');
   toggle.innerHTML = '<i class="fas fa-bars"></i>';
-  toggle.style.animation = 'toggleClose 0.5s ease-in-out';
-}
-
-toggle.addEventListener('click', toggleMenu);
-
-window.onclick = function(event) {
-  if (!event.target.matches('.toggle') && !event.target.matches('.toggle i')) {
-    if (menu.style.display === 'block') {
-      closeMenu();
-    }
   }
 }
 </script>
