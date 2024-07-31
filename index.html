@@ -15,12 +15,12 @@
 }
         header {
     background-image: url('background-pic.jpg');
-    background-size: cover;
+    background-size: 100%;
     background-position: center;
     color: #fff;
     height: 500px;
     position: relative;
-    padding: 2em 0; /* Added spacing */
+    padding: 2em 0; 
 }
         header::after {
     content: '';
@@ -33,7 +33,7 @@
     z-index: 0;
 }
         .header-top {
-            display: flex;
+            display: block;
             justify-content: space-between;
             align-items: center;
             padding: 1em;
@@ -58,7 +58,7 @@
         .logo {
             width: 50px;
             margin-left: 10px;
-            margin-right: 10px;
+            margin-right: 8px;
         }
         .toggle {
             cursor: pointer;
@@ -68,7 +68,7 @@
             font-size: 24px;
         }
         .menu {
-            display: none;
+            display: block;
             background: #000;
             position: absolute;
             top: 3em;
@@ -133,6 +133,13 @@ z-index: 2;
         h2 {
             color: #fff;
         }
+.section-divider {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 20px;
+    width: 80%; /* adjust the width as needed */
+    margin-left: auto;
+    margin-right: auto;
+}
         p {
             line-height: 1.6;
         }
@@ -195,7 +202,7 @@ z-index: 2;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-height: 100px;
+height: 60px;
   width: 150px;
   font-size: 1em;
   padding: 30px;
@@ -324,6 +331,7 @@ padding: 10px;
         <img src="profile-pic.jpg" alt="Tosin Adewole" class="profile-pic">
     </section>
     <section id="about">
+class="section-divider">
         <h2>About Me</h2>
         <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
     </section>
@@ -339,7 +347,8 @@ padding: 10px;
   </div>
 </section>
     <section id="projects">
-        <h2>Projects</h2>
+class="section-divider">
+        <h2>Selected Projects</h2>
         <div class="project-thumbnail">
             <span class="project-title">Project 1</span>
         </div>
@@ -357,12 +366,19 @@ padding: 10px;
         </div>
     </section>
     <section id="articles">
+class="section-divider">
         <h2>Articles</h2>
         <ul>
             <li><a href="article1.html">Article 1</a></li>
             <li><a href="article2.html">Article 2</a></li>
             <li><a href="article3.html">Article 3</a></li>
         </ul>
+    </section>
+<section id="resume">
+class="section-divider">
+        <h2>Resume</h2>
+        <a href="resume.pdf" class="resume-button">View My Resume</a>
+<div class="contact-padding"></div>
     </section>
     <section id="contact">
         <h2>Get in Touch</h2>
@@ -373,67 +389,65 @@ padding: 10px;
                 <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit">Send</button>
             </form>
-            <div class="contact-padding"></div>
-    </section>
-    <section id="resume">
-        <h2>VResume</h2>
-        <a href="resume.pdf" class="resume-button">View My Resume</a>
+<div class="contact-padding"></div>
     </section>
     <footer class="compact-footer">
         <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
         <ul class="social-icons">
             <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fa-brands fa-twitter"></i></i></a></li>
             <li><a href="https://www.instagram.com/techblazer001" target="_blank"><i class="fab fa-instagram"></i></a></li>
             <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
         <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
     <script>
-let expertiseIndex = 0;
-const expertiseBoxes = document.querySelectorAll('.expertise-box');
-const toggle = document.querySelector('.toggle');
-const menu = document.querySelector('.menu');
+    let expertiseIndex = 0;
+    const expertiseBoxes = document.querySelectorAll('.expertise-box');
+    const toggle = document.querySelector('.toggle');
+    const menu = document.querySelector('.menu');
 
-function cycleExpertise() {
-  expertiseBoxes.forEach((box, index) => {
-    box.classList.add('hide');
-    box.classList.remove('show');
-  });
-  expertiseIndex = (expertiseIndex + 1) % expertiseBoxes.length;
-  expertiseBoxes[expertiseIndex].classList.add('show');
-  expertiseBoxes[expertiseIndex].classList.remove('hide');
-}
-
-setInterval(cycleExpertise, 3000);
-
-function toggleMenu() {
-  menu.style.display === 'block' ? closeMenu() : openMenu();
-}
-
-function openMenu() {
-  menu.style.display = 'block';
-  toggle.classList.add('active');
-  toggle.innerHTML = '<i class="fas fa-times"></i>';
-  toggle.style.animation = 'toggleOpen 0.5s ease-in-out';
-}
-
-function closeMenu() {
-  menu.style.display = 'none';
-  toggle.classList.remove('active');
-  toggle.innerHTML = '<i class="fas fa-bars"></i>';
-  toggle.style.animation = 'toggleClose 0.5s ease-in-out';
-}
-
-window.onclick = function(event) {
-  if (!event.target.matches('.toggle') && !event.target.matches('.toggle i')) {
-    if (menu.style.display === 'block') {
-      closeMenu();
+    function cycleExpertise() {
+        expertiseBoxes.forEach((box, index) => {
+            box.classList.add('hide');
+            box.classList.remove('show');
+        });
+        expertiseIndex = (expertiseIndex + 1) % expertiseBoxes.length;
+        expertiseBoxes[expertiseIndex].classList.add('show');
+        expertiseBoxes[expertiseIndex].classList.remove('hide');
+        // Update expertise box position
+        expertiseBoxes[expertiseIndex].style.transform = `translateX(${expertiseIndex * 150}px)`;
     }
-  }
-}
 
-toggle.addEventListener('click', toggleMenu);
+    setInterval(cycleExpertise, 3000);
+
+    function toggleMenu() {
+        menu.style.display === 'block' ? closeMenu() : openMenu();
+    }
+
+    function openMenu() {
+        menu.style.display = 'block';
+        toggle.classList.add('active');
+        toggle.innerHTML = '<i class="fas fa-times"></i>';
+        toggle.style.animation = 'toggleOpen 0.5s ease-in-out';
+    }
+
+    function closeMenu() {
+        menu.style.display = 'none';
+        toggle.classList.remove('active');
+        toggle.innerHTML = '<i class="fas fa-bars"></i>';
+        toggle.style.animation = 'toggleClose 0.5s ease-in-out';
+    }
+
+    toggle.addEventListener('click', toggleMenu);
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.toggle') && !event.target.matches('.toggle i')) {
+            if (menu.style.display === 'block') {
+                closeMenu();
+            }
+        }
+    }
 </script>
 </body>
 </html>
