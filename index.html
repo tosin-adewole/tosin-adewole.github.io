@@ -10,7 +10,7 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: #10131A;  
+    background: linear-gradient(to bottom, #333, #000);  
     color: #fff;
 }
         header {
@@ -29,7 +29,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(20, 10, 71, 0.5);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
         .header-top {
@@ -41,8 +41,8 @@
   top: 0;
   width: 100%;
   z-index: 3;
-            background: rgba(16, 19, 26, 0.7);
-}
+            background: rgba(0, 0, 0, 0.7);
+        }
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -58,7 +58,7 @@
         .logo {
             width: 50px;
             margin-left: 10px;
-            margin-right: 8px;
+            margin-right: 10px;
         }
         .toggle {
             cursor: pointer;
@@ -69,7 +69,7 @@
         }
         .menu {
             display: block;
-            background: #10131A;
+            background: #000;
             position: absolute;
             top: 3em;
             right: 1em;
@@ -133,18 +133,11 @@ z-index: 2;
         h2 {
             color: #fff;
         }
-.section-divider {
-    border-bottom: 1px solid #fff;
-    margin-bottom: 20px;
-    width: 80%; /* adjust the width as needed */
-    margin-left: auto;
-    margin-right: auto;
-}
         p {
             line-height: 1.6;
         }
         footer {
-            background: #10131A;
+            background: #000;
             color: #fff;
             text-align: center;
             padding: 1em 0;
@@ -200,17 +193,17 @@ z-index: 2;
 .expertise-box {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
   transform: translateX(-50%);
 height: 60px;
   width: 150px;
   font-size: 1em;
   padding: 30px;
   margin: 0 auto;
-  background: #140A47;
+  background: #444;
   border: 2px solid #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  transition: opacity 1s, opacity 0;
+  transition: transform 1s, opacity 1s;
   font-family: 'Arial', sans-serif;
   color: #fff;
   display: flex;
@@ -231,20 +224,11 @@ height: 60px;
 .expertise-box.show {
   opacity: 1;
   transform: rotateY(0);
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(100%);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    } 
- }
+}
         .project-thumbnail {
             width: 100%;
             height: 200px;
-            background: #C6C6D0;
+            background: #444;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -275,26 +259,26 @@ padding: 10px;
             margin: 0.5em 0;
             border: 2px solid #fff;
             border-radius: 5px;
-            background: #140A47;
+            background: #333;
             color: #fff;
         }
         .get-in-touch form button {
             padding: 0.5em 1em;
             border: 2px solid #fff;
             border-radius: 5px;
-            background: #140A47;
+            background: #000;
             color: #fff;
             cursor: pointer;
             transition: background 0.3s;
             align-self: flex-start;
         }
         .get-in-touch form button:hover {
-            background: #140A47;
+            background: #444;
         }
         .resume-button {
             display: inline-block;
             padding: 0.5em 1em;
-            background: #140A47;
+            background: #000;
             color: #fff;
             text-decoration: none;
             border-radius: 5px;
@@ -304,7 +288,7 @@ padding: 10px;
             align-self: center;
         }
         .resume-button:hover {
-            background: #140A47;
+            background: #444;
         }
         .compact-footer {
             font-size: 0.8em;
@@ -355,7 +339,7 @@ padding: 10px;
   </div>
 </section>
     <section id="projects">
-        <h2>Selected Projects</h2>
+        <h2>Projects</h2>
         <div class="project-thumbnail">
             <span class="project-title">Project 1</span>
         </div>
@@ -372,18 +356,13 @@ padding: 10px;
             <span class="project-title">Project 5</span>
         </div>
     </section>
-    <section id="articles" class="section-divider">
+    <section id="articles">
         <h2>Articles</h2>
         <ul>
             <li><a href="article1.html">Article 1</a></li>
             <li><a href="article2.html">Article 2</a></li>
             <li><a href="article3.html">Article 3</a></li>
         </ul>
-    </section>
-<section id="resume">
-        <h2>Resume</h2>
-        <a href="resume.pdf" class="resume-button">View My Resume</a>
-<div class="contact-padding"></div>
     </section>
     <section id="contact">
         <h2>Get in Touch</h2>
@@ -394,13 +373,17 @@ padding: 10px;
                 <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                 <button type="submit">Send</button>
             </form>
-<div class="contact-padding"></div>
+            <div class="contact-padding"></div>
+    </section>
+    <section id="resume">
+        <h2>VResume</h2>
+        <a href="resume.pdf" class="resume-button">View My Resume</a>
     </section>
     <footer class="compact-footer">
         <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
         <ul class="social-icons">
             <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fa-brands" style="font-weight: 400;">&#xe61b;</i></a></li>
+            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fa-brands fa-twitter"></i></i></a></li>
             <li><a href="https://www.instagram.com/techblazer001" target="_blank"><i class="fab fa-instagram"></i></a></li>
             <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
@@ -413,22 +396,21 @@ padding: 10px;
     const menu = document.querySelector('.menu');
 
     function cycleExpertise() {
-        const currentBox = expertiseBoxes[expertiseIndex];
-        currentBox.classList.add('hide');
+        expertiseBoxes.forEach((box, index) => {
+            box.classList.add('hide');
+            box.classList.remove('show');
+        });
         expertiseIndex = (expertiseIndex + 1) % expertiseBoxes.length;
-        const nextBox = expertiseBoxes[expertiseIndex];
-        nextBox.classList.remove('hide');
-        nextBox.style.animation = 'slideIn 1s ease-in-out';
+        expertiseBoxes[expertiseIndex].classList.add('show');
+        expertiseBoxes[expertiseIndex].classList.remove('hide');
+        // Update expertise box position
+        expertiseBoxes[expertiseIndex].style.transform = `translateX(${expertiseIndex * 150}px)`;
     }
 
     setInterval(cycleExpertise, 3000);
 
     function toggleMenu() {
-        if (menu.style.display === 'block') {
-            closeMenu();
-        } else {
-            openMenu();
-        }
+        menu.style.display === 'block' ? closeMenu() : openMenu();
     }
 
     function openMenu() {
@@ -456,4 +438,4 @@ padding: 10px;
     }
 </script>
 </body>
-</html>
+    </html>
