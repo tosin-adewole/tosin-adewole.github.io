@@ -10,7 +10,7 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #333, #000);  
+    background: linear-gradient(to bottom, #000, #333);  
     color: #fff;
 }
         header {
@@ -210,7 +210,7 @@ height: 60px;
   background: #444;
   border: 2px solid #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 1s, opacity 1s;
+  transition: opacity 1s, opacity 0;
   font-family: 'Arial', sans-serif;
   color: #fff;
   display: flex;
@@ -231,7 +231,15 @@ height: 60px;
 .expertise-box.show {
   opacity: 1;
   transform: rotateY(0);
-}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
         .project-thumbnail {
             width: 100%;
             height: 200px;
@@ -330,8 +338,7 @@ padding: 10px;
     <section id="home">
         <img src="profile-pic.jpg" alt="Tosin Adewole" class="profile-pic">
     </section>
-    <section id="about">
-class="section-divider">
+    <section id="about" class="section-divider">
         <h2>About Me</h2>
         <p>Hello, I'm Tosin Adewole, a versatile professional passionate about data analysis, research, and much more. With a keen interest in writing, graphic design, CRM tools, and lead generation, I thrive on helping individuals and businesses achieve their goals in the most effective ways possible. As a tech enthusiast with a creative flair, I love solving problems and uncovering unique insights that others might miss. Let's work together to turn your challenges into opportunities for success.</p>
     </section>
@@ -346,8 +353,7 @@ class="section-divider">
     <div class="expertise-box hide" id="expertise-box-6"><i class="fas fa-bullseye"></i> Lead Generation</div>
   </div>
 </section>
-    <section id="projects">
-class="section-divider">
+    <section id="projects" class="section-divider">
         <h2>Selected Projects</h2>
         <div class="project-thumbnail">
             <span class="project-title">Project 1</span>
@@ -365,8 +371,7 @@ class="section-divider">
             <span class="project-title">Project 5</span>
         </div>
     </section>
-    <section id="articles">
-class="section-divider">
+    <section id="articles" class="section-divider">
         <h2>Articles</h2>
         <ul>
             <li><a href="article1.html">Article 1</a></li>
@@ -374,8 +379,7 @@ class="section-divider">
             <li><a href="article3.html">Article 3</a></li>
         </ul>
     </section>
-<section id="resume">
-class="section-divider">
+<section id="resume" class="section-divider">
         <h2>Resume</h2>
         <a href="resume.pdf" class="resume-button">View My Resume</a>
 <div class="contact-padding"></div>
@@ -395,7 +399,7 @@ class="section-divider">
         <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
         <ul class="social-icons">
             <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fa-brands fa-twitter"></i></i></a></li>
+            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fa-brands fa-x-twitter"></i></i></i></a></li>
             <li><a href="https://www.instagram.com/techblazer001" target="_blank"><i class="fab fa-instagram"></i></a></li>
             <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
         </ul>
@@ -408,21 +412,24 @@ class="section-divider">
     const menu = document.querySelector('.menu');
 
     function cycleExpertise() {
-        expertiseBoxes.forEach((box, index) => {
-            box.classList.add('hide');
-            box.classList.remove('show');
-        });
+        const currentBox = expertiseBoxes[expertiseIndex];
+        currentBox.classList.remove('show');
+        currentBox.classList.add('hide');
         expertiseIndex = (expertiseIndex + 1) % expertiseBoxes.length;
-        expertiseBoxes[expertiseIndex].classList.add('show');
-        expertiseBoxes[expertiseIndex].classList.remove('hide');
-        // Update expertise box position
-        expertiseBoxes[expertiseIndex].style.transform = `translateX(${expertiseIndex * 150}px)`;
+        const nextBox = expertiseBoxes[expertiseIndex];
+        nextBox.classList.remove('hide');
+        nextBox.classList.add('show');
+        nextBox.style.animation = 'slideIn 1s ease-in-out';
     }
 
     setInterval(cycleExpertise, 3000);
 
     function toggleMenu() {
-        menu.style.display === 'block' ? closeMenu() : openMenu();
+        if (toggle.classList.contains('active')) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     }
 
     function openMenu() {
