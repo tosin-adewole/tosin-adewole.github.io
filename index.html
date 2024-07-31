@@ -188,7 +188,7 @@ z-index: 2;
         .profile-pic:hover {
             transform: rotateY(180deg);
         }
-        .expertise-container {
+       .expertise-container {
   position: relative;
   width: 80%;
   margin: 0 auto;
@@ -200,7 +200,7 @@ z-index: 2;
 .expertise-box {
   position: absolute;
   top: 0;
-  left: 0; /* Align to the left */
+  left: 0;
   height: 60px;
   width: 150px;
   font-size: 1em;
@@ -209,13 +209,13 @@ z-index: 2;
   background: #140A47;
   border: 2px solid #fff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-  transition: opacity 1s;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
   font-family: 'Arial', sans-serif;
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: slideInFromLeft 1s ease-in-out; /* New animation */
+  animation: slideInFromLeft 1s ease-in-out;
 }
 
 @keyframes slideInFromLeft {
@@ -235,22 +235,25 @@ z-index: 2;
 }
 
 .expertise-box.hide {
+  transform: translateX(-100%);
   opacity: 0;
-  transform: rotateY(90deg);
 }
 
 .expertise-box.show {
+  transform: translateX(0);
   opacity: 1;
-  transform: rotateY(0);
+}
+
 @keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-50%) translateY(100%);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
         .project-thumbnail {
             width: 100%;
             height: 200px;
@@ -417,54 +420,56 @@ padding: 10px;
         <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
     <script>
-    let expertiseIndex = 0;
-    const expertiseBoxes = document.querySelectorAll('.expertise-box');
-    const toggle = document.querySelector('.toggle');
-    const menu = document.querySelector('.menu');
+let expertiseIndex = 0;
+const expertiseBoxes = document.querySelectorAll('.expertise-box');
+const toggle = document.querySelector('.toggle');
+const menu = document.querySelector('.menu');
 
-    function cycleExpertise() {
-        const currentBox = expertiseBoxes[expertiseIndex];
-        currentBox.classList.remove('show');
-        currentBox.classList.add('hide');
-        expertiseIndex = (expertiseIndex + 1) % expertiseBoxes.length;
-        const nextBox = expertiseBoxes[expertiseIndex];
-        nextBox.classList.remove('hide');
-        nextBox.classList.add('show');
-        nextBox.style.animation = 'slideIn 1s ease-in-out';
+function cycleExpertise() {
+  const currentBox = expertiseBoxes[expertiseIndex];
+  currentBox.classList.remove('show');
+  currentBox.classList.add('hide');
+
+  expertiseIndex = (expertiseIndex + 1) % expertiseBoxes.length;
+  const nextBox = expertiseBoxes[expertiseIndex];
+  nextBox.classList.remove('hide');
+  nextBox.classList.add('show');
+
+  // Remove the animation property to allow the transition to work
+  nextBox.style.animation = '';
+}
+
+setInterval(cycleExpertise, 3000);
+
+function toggleMenu() {
+  if (toggle.classList.contains('active')) {
+    closeMenu();
+  }
+}
+
+function openMenu() {
+  menu.style.display = 'block';
+  toggle.classList.add('active');
+  toggle.innerHTML = '<i class="fas fa-times"></i>';
+  toggle.style.animation = 'toggleOpen 0.5s ease-in-out';
+}
+
+function closeMenu() {
+  menu.style.display = 'none';
+  toggle.classList.remove('active');
+  toggle.innerHTML = '<i class="fas fa-bars"></i>';
+  toggle.style.animation = 'toggleClose 0.5s ease-in-out';
+}
+
+toggle.addEventListener('click', toggleMenu);
+
+window.onclick = function(event) {
+  if (!event.target.matches('.toggle') && !event.target.matches('.toggle i')) {
+    if (menu.style.display === 'block') {
+      closeMenu();
     }
-
-    setInterval(cycleExpertise, 3000);
-
-    function toggleMenu() {
-        if (toggle.classList.contains('active')) {
-            closeMenu();
-        } 
-        }
-    }
-
-    function openMenu() {
-        menu.style.display = 'block';
-        toggle.classList.add('active');
-        toggle.innerHTML = '<i class="fas fa-times"></i>';
-        toggle.style.animation = 'toggleOpen 0.5s ease-in-out';
-    }
-
-    function closeMenu() {
-        menu.style.display = 'none';
-        toggle.classList.remove('active');
-        toggle.innerHTML = '<i class="fas fa-bars"></i>';
-        toggle.style.animation = 'toggleClose 0.5s ease-in-out';
-    }
-
-    toggle.addEventListener('click', toggleMenu);
-
-    window.onclick = function(event) {
-        if (!event.target.matches('.toggle') && !event.target.matches('.toggle i')) {
-            if (menu.style.display === 'block') {
-                closeMenu();
-            }
-        }
-    }
+  }
+}
 </script>
 </body>
-    </html>
+            </html>
