@@ -61,24 +61,26 @@
             margin-right: 8px;
         }
         .toggle {
-            cursor: pointer;
-            margin-right: 10px;
-        }
+  cursor: pointer;
+  margin-right: 10px;
+  position: absolute; 
+  right: 1em;
+}
         .toggle i {
             font-size: 24px;
         }
         .menu {
-            display: block;
-            background: #10131A;
-            position: absolute;
-            top: 3em;
-            right: 1em;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            width: 200px;
-            border: 1px solid #888;
-            transition: display 0.5s ease-in-out;    
-z-index: 2;
-        }
+  display: none; /* Change from block to none */
+  background: #10131A;
+  position: absolute;
+  top: 3em;
+  right: 1em;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  width: 200px;
+  border: 1px solid #888;
+  transition: display 0.5s ease-in-out;
+  z-index: 2;
+}
         .menu a {
             display: block;
             padding: 1em;
@@ -419,7 +421,7 @@ padding: 10px;
         </ul>
         <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
-    <script>
+   <script>
 let expertiseIndex = 0;
 const expertiseBoxes = document.querySelectorAll('.expertise-box');
 const toggle = document.querySelector('.toggle');
@@ -444,6 +446,8 @@ setInterval(cycleExpertise, 3000);
 function toggleMenu() {
   if (toggle.classList.contains('active')) {
     closeMenu();
+  } else {
+    openMenu();
   }
 }
 
@@ -472,4 +476,4 @@ window.onclick = function(event) {
 }
 </script>
 </body>
-            </html>
+    </html>
