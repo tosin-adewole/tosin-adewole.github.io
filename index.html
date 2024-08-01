@@ -33,7 +33,7 @@
     z-index: 0;
 }
         .header-top {
-            display: flex;
+            display: block;
             justify-content: space-between;
             align-items: center;
             padding: 1em;
@@ -42,6 +42,8 @@
   width: 100%;
   z-index: 3;
             background: rgba(16, 19, 26, 0.7);
+width: 100vw;
+box-sizing: border-box;
 }
         .header-content {
             display: flex;
@@ -63,11 +65,10 @@
         .toggle {
   cursor: pointer;
   margin-right: 10px;
-  position: absolute;
+  position: absolute; 
   right: 1em;
 }
-
-.toggle i {
+        .toggle i {
   font-size: 24px;
   transition: transform 0.5s ease-in-out;
 }
@@ -86,10 +87,8 @@
   width: 200px;
   border: 1px solid #888;
   z-index: 2;
-  opacity: 0;
   transition: opacity 0.5s ease-in-out;
 }
-
 .toggle.active + .menu {
   display: block;
   opacity: 1;
@@ -109,6 +108,28 @@
 
 .menu a:hover {
   background: #444;
+}
+
+@keyframes toggleOpen {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes toggleClose {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.toggle.active i {
+  animation: toggleOpen 0.5s ease-in-out;
 }
         .welcome-message {
             text-align: center;
@@ -327,6 +348,15 @@ padding: 10px;
         .contact-padding {
             padding: 20px;
         }
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .logo {
+        margin-bottom: 10px;
+    }
+}
     </style>
 </head>
 <body>
@@ -421,7 +451,7 @@ padding: 10px;
         </ul>
         <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
-<script>
+   <script>
 document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.querySelector('.toggle');
   const menu = document.querySelector('.menu');
@@ -480,4 +510,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 </body>
-</html>
+    </html>
