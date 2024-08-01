@@ -463,9 +463,10 @@ function cycleExpertise() {
 setInterval(cycleExpertise, 3000);
 
 function toggleMenu() {
-            var menu = document.querySelector('.menu');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
+  toggle.classList.toggle('active');
+  menu.style.display = toggle.classList.contains('active') ? 'block' : 'none';
+  toggle.innerHTML = toggle.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+}
 
 function openMenu() {
   menu.style.display = 'block';
@@ -478,7 +479,6 @@ function closeMenu() {
   toggle.classList.remove('active');
   toggle.innerHTML = '<i class="fas fa-bars"></i>';
   }
-}
-</script>
+}</script>
 </body>
-</html>
+    </html>
