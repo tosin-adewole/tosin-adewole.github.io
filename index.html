@@ -463,22 +463,34 @@ function cycleExpertise() {
 setInterval(cycleExpertise, 3000);
 
 function toggleMenu() {
-  toggle.classList.toggle('active');
-  menu.style.display = toggle.classList.contains('active') ? 'block' : 'none';
-  toggle.innerHTML = toggle.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+  if (toggle.classList.contains('active')) {
+    closeMenu();
+  }
 }
 
 function openMenu() {
   menu.style.display = 'block';
   toggle.classList.add('active');
   toggle.innerHTML = '<i class="fas fa-times"></i>';
+  toggle.style.animation = 'toggleOpen 0.5s ease-in-out';
 }
 
 function closeMenu() {
   menu.style.display = 'none';
   toggle.classList.remove('active');
   toggle.innerHTML = '<i class="fas fa-bars"></i>';
+  toggle.style.animation = 'toggleClose 0.5s ease-in-out';
+}
+
+toggle.addEventListener('click', toggleMenu);
+
+window.onclick = function(event) {
+  if (!event.target.matches('.toggle') && !event.target.matches('.toggle i')) {
+    if (menu.style.display === 'block') {
+      closeMenu();
+    }
   }
-}</script>
+}
+                    </script>
 </body>
     </html>
