@@ -425,10 +425,11 @@ padding: 10px;
 document.addEventListener('DOMContentLoaded', function() {
   const toggle = document.querySelector('.toggle');
   const menu = document.querySelector('.menu');
-    let expertiseIndex = 0;
-const expertiseBoxes = document.querySelectorAll('.expertise-box');
+  let expertiseIndex = 0;
+  const expertiseBoxes = document.querySelectorAll('.expertise-box');
 
-  function toggleMenu() {
+  function toggleMenu(event) {
+    event.stopPropagation();
     if (toggle.classList.contains('active')) {
       closeMenu();
     } else {
@@ -462,21 +463,21 @@ const expertiseBoxes = document.querySelectorAll('.expertise-box');
 
   toggle.addEventListener('click', toggleMenu);
 
-    function cycleExpertise() {
-  const currentBox = expertiseBoxes[expertiseIndex];
-  currentBox.classList.remove('show');
-  currentBox.classList.add('hide');
+  function cycleExpertise() {
+    const currentBox = expertiseBoxes[expertiseIndex];
+    currentBox.classList.remove('show');
+    currentBox.classList.add('hide');
 
-  expertiseIndex = (expertiseIndex + 1) % expertiseBoxes.length;
-  const nextBox = expertiseBoxes[expertiseIndex];
-  nextBox.classList.remove('hide');
-  nextBox.classList.add('show');
+    expertiseIndex = (expertiseIndex + 1) % expertiseBoxes.length;
+    const nextBox = expertiseBoxes[expertiseIndex];
+    nextBox.classList.remove('hide');
+    nextBox.classList.add('show');
 
-  nextBox.style.animation = '';
-}
+    nextBox.style.animation = '';
+  }
 
-setInterval(cycleExpertise, 3000);
+  setInterval(cycleExpertise, 3000);
 });
-   </script>
+</script>
 </body>
 </html>
