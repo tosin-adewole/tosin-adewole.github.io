@@ -33,17 +33,17 @@
     z-index: 0;
 }
         .header-top {
-            display: block;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1em;
-            position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 3;
-            background: rgba(16, 19, 26, 0.7);
-width: 100vw;
-box-sizing: border-box;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 60px; /* Set the default height */
+    z-index: 3;
+    background: rgba(16, 19, 26, 0.7);
+    box-sizing: border-box;
 }
         .header-content {
             display: flex;
@@ -58,10 +58,10 @@ box-sizing: border-box;
             text-align: left;
         }
         .logo {
-            width: 50px;
-            margin-left: 10px;
-            margin-right: 8px;
-        }
+    width: 50px; /* Default logo size */
+    margin-left: 10px;
+    margin-right: 5px;
+}
         .toggle {
   cursor: pointer;
   margin-right: 10px;
@@ -349,12 +349,23 @@ padding: 10px;
             padding: 20px;
         }
 @media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
+    .header-top {
+        padding: 0.2em; /* Reduce padding further for smaller screens */
+    }
+.header-content {
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
     }
     .logo {
-        margin-bottom: 10px;
+        margin-bottom: 0;
+        width: 40px; /* Reduce logo size */
+    }
+    .header-top h1 {
+        font-size: 1.2em; /* Reduce name size */
+    }
+    .toggle i {
+        font-size: 20px; /* Reduce toggle size */
     }
 }
     </style>
