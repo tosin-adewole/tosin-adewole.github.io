@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tosin Adewole's Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <style>
     body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background: #333333;  
+        background: #222;  
         color: #fff;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
@@ -31,7 +31,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: #333333, 50%;
+        background: rgba(0, 0, 0, 0.5)0;
         z-index: 0;
     }
     .header-top {
@@ -44,7 +44,7 @@
         width: 100vw;
         height: 50px;
         z-index: 3;
-        background: #2E4053;
+        background: #000;
         box-sizing: border-box;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
@@ -65,7 +65,7 @@
     .logo {
         width: 50px;
         margin-left: 10px;
-        margin-right: 5px;
+        margin-right: 8px;
     }
     .toggle {
         cursor: pointer;
@@ -82,13 +82,13 @@
     }
     .menu {
         display: none;
-        background: #333333;
+        background: #222;
         position: absolute;
         top: 3em;
         right: 1em;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         width: 200px;
-        border: 1px solid #3333330;
+        border: 1px solid #888;
         z-index: 2;
         transition: opacity 0.5s ease-in-out;
     }
@@ -101,13 +101,13 @@
         padding: 1em;
         color: #fff;
         text-decoration: none;
-        border-bottom: 1px solid #333333;
+        border-bottom: 1px solid #888;
     }
     .menu a:last-child {
         border-bottom: none;
     }
     .menu a:hover {
-        background: #2e2e2e;
+        background: #444;
     }
     @keyframes toggleOpen {
         0% {
@@ -165,10 +165,10 @@
     }
     p {
         line-height: 1.6;
-        color: #CCCCCC; /* Lighter text for better readability */
+        color: #fff; 
     }
     footer {
-        background: #2C3E50;
+        background: #000;
         color: #fff;
         text-align: center;
         padding: 1em 0;
@@ -192,10 +192,10 @@
         text-decoration: none;
         font-size: 20px;
     }
-    .social-icons li:nth-child(2) a i {
-        font-family: 'Font Awesome 5 Brands';
-        content: '\f099'; /* Twitter icon */
-    }
+   .social-icons li:nth-child(2) a i {
+font-family: 'Font Awesome 6 Brands';
+content: '\f082';
+}
     .profile-pic {
         display: block;
         margin: -200px auto 0 auto;
@@ -205,7 +205,7 @@
         object-fit: cover;
         position: relative;
         z-index: 1;
-        border: 3px solid #333333;
+        border: 5px solid #fff;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         transition: transform 0.5s;
     }
@@ -221,6 +221,7 @@
         text-align: center;
     }
     .expertise-box {
+display: inline-block;
         position: absolute;
         top: 0;
         left: 0;
@@ -229,8 +230,8 @@
         font-size: 1em;
         padding: 30px;
         margin: 0 auto;
-        background: #202020; /* Lighter gray for better visibility */
-        border: 1px solid #383838;
+        background: #444;
+        border: 2px solid #fff;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         transition: transform 1s ease-in-out, opacity 1s ease-in-out;
         font-family: 'Arial', sans-serif;
@@ -275,7 +276,7 @@
     .project-thumbnail {
         width: 100%;
         height: 200px;
-        background: #C6C6D0;
+        background: #444;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -307,7 +308,7 @@
         margin: 0.5em 0;
         border: 2px solid #fff;
         border-radius: 5px;
-        background: #140A47;
+        background: #333;
         color: #fff;
         transition: background 0.3s;
     }
@@ -315,19 +316,19 @@
         padding: 0.5em 1em;
         border: 2px solid #fff;
         border-radius: 5px;
-        background: #140A47;
+        background: #000;
         color: #fff;
         cursor: pointer;
         transition: background 0.3s;
         align-self: flex-start;
     }
     .get-in-touch form button:hover {
-        background: #140A47;
+        background: #444;
     }
     .resume-button {
         display: inline-block;
         padding: 0.5em 1em;
-        background: #140A47;
+        background: #000;
         color: #fff;
         text-decoration: none;
         border-radius: 5px;
@@ -337,7 +338,7 @@
         align-self: center;
     }
     .resume-button:hover {
-        background: #140A47;
+        background: #444;
     }
     .compact-footer {
         font-size: 0.8em;
@@ -452,10 +453,10 @@
     <footer class="compact-footer">
         <p>Email: <a href="mailto:tosinadewole@hotmail.com">tosinadewole@hotmail.com</a></p>
         <ul class="social-icons">
-            <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fa-brands" style="font-weight: 300;">&#xe61b;</i></a></li>
-            <li><a href="https://www.instagram.com/techblazer001" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+            <li><a href="https://www.facebook.com/tosinadewole1" target="_blank"><i class="fa-brands fa-facebook-f"></i>
+            <li><a href="https://x.com/teeblaze" target="_blank"><i class="fa-brands fa-x-twitter"></i>
+            <li><a href="https://www.instagram.com/techblazer001" target="_blank"><i class="fa-brands fa-square-instagram"></i>
+            <li><a href="https://www.linkedin.com/in/tosin-adewole" target="_blank"><i class="fa-brands fa-linkedin-in"></i>
         </ul>
         <p>&copy; 2024 Tosin Adewole. All rights reserved.</p>
     </footer>
